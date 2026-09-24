@@ -1,0 +1,823 @@
+[
+  {
+    "instruction": "Проверь планировку: {\"rooms\":[{\"type\":\"living\",\"area\":18},{\"type\":\"kitchen\",\"area\":5},{\"type\":\"bedroom\",\"area\":14},{\"type\":\"bathroom\",\"area\":3},{\"type\":\"hall\",\"area\":8}],\"corridor_width\":1.1,\"wet_areas_grouped\":true}",
+    "input_lines": [],
+    "output_text": "Нарушения: ширина коридора 1.1 м < 1.2 м; площадь кухни 5 м² < 6 м².",
+    "output": {
+      "status": "violations",
+      "items": [
+        {
+          "type": "corridor_width",
+          "current": 1.1,
+          "min": 1.2,
+          "location": "hall"
+        },
+        {
+          "type": "kitchen_area",
+          "current": 5,
+          "min": 6,
+          "location": "kitchen"
+        }
+      ]
+    }
+  },
+  {
+    "instruction": "Проверь планировку: {\"rooms\":[{\"type\":\"living_kitchen\",\"area\":24},{\"type\":\"bedroom\",\"area\":14},{\"type\":\"bathroom\",\"area\":5},{\"type\":\"hall\",\"area\":8}],\"corridor_width\":1.3,\"wet_areas_grouped\":true}",
+    "input_lines": [],
+    "output_text": "Нарушений не выявлено. Планировка соответствует нормам.",
+    "output": {
+      "status": "ok",
+      "items": []
+    }
+  },
+  {
+    "instruction": "Проверь планировку: {\"rooms\":[{\"type\":\"living\",\"area\":16},{\"type\":\"kitchen\",\"area\":6},{\"type\":\"bedroom\",\"area\":11},{\"type\":\"bathroom\",\"area\":3},{\"type\":\"hall\",\"area\":5}],\"corridor_width\":1.2,\"wet_areas_grouped\":false}",
+    "input_lines": [],
+    "output_text": "Нарушения: площадь спальни 11 м² < 12 м²; мокрые зоны не сгруппированы.",
+    "output": {
+      "status": "violations",
+      "items": [
+        {
+          "type": "bedroom_area",
+          "current": 11,
+          "min": 12,
+          "location": "bedroom"
+        },
+        {
+          "type": "wet_areas_grouping",
+          "current": false,
+          "required": true,
+          "location": "bathroom"
+        }
+      ]
+    }
+  },
+  {
+    "instruction": "Проверь планировку: {\"rooms\":[{\"type\":\"studio\",\"area\":30},{\"type\":\"bathroom\",\"area\":3},{\"type\":\"hall\",\"area\":3}],\"corridor_width\":1.0,\"wet_areas_grouped\":true}",
+    "input_lines": [],
+    "output_text": "Нарушение: ширина коридора 1.0 м < 1.2 м.",
+    "output": {
+      "status": "violations",
+      "items": [
+        {
+          "type": "corridor_width",
+          "current": 1.0,
+          "min": 1.2,
+          "location": "hall"
+        }
+      ]
+    }
+  },
+  {
+    "instruction": "Проверь планировку: {\"rooms\":[{\"type\":\"living\",\"area\":22},{\"type\":\"kitchen\",\"area\":7},{\"type\":\"bedroom_1\",\"area\":14},{\"type\":\"bedroom_2\",\"area\":12},{\"type\":\"bathroom\",\"area\":4},{\"type\":\"hall\",\"area\":9}],\"corridor_width\":1.2,\"wet_areas_grouped\":true}",
+    "input_lines": [],
+    "output_text": "Нарушений не выявлено. Планировка соответствует нормам.",
+    "output": {
+      "status": "ok",
+      "items": []
+    }
+  },
+  {
+    "instruction": "Проверь планировку: {\"rooms\":[{\"type\":\"living\",\"area\":20},{\"type\":\"kitchen\",\"area\":4},{\"type\":\"bedroom\",\"area\":13},{\"type\":\"bathroom\",\"area\":2},{\"type\":\"hall\",\"area\":6}],\"corridor_width\":1.1,\"wet_areas_grouped\":true}",
+    "input_lines": [],
+    "output_text": "Нарушения: площадь кухни 4 м² < 6 м²; ширина коридора 1.1 м < 1.2 м.",
+    "output": {
+      "status": "violations",
+      "items": [
+        {
+          "type": "kitchen_area",
+          "current": 4,
+          "min": 6,
+          "location": "kitchen"
+        },
+        {
+          "type": "corridor_width",
+          "current": 1.1,
+          "min": 1.2,
+          "location": "hall"
+        }
+      ]
+    }
+  },
+  {
+    "instruction": "Проверь планировку: {\"rooms\":[{\"type\":\"living_kitchen\",\"area\":26},{\"type\":\"bedroom\",\"area\":15},{\"type\":\"bathroom\",\"area\":5},{\"type\":\"wardrobe\",\"area\":4},{\"type\":\"hall\",\"area\":8}],\"corridor_width\":1.3,\"wet_areas_grouped\":true}",
+    "input_lines": [],
+    "output_text": "Нарушений не выявлено. Планировка соответствует нормам.",
+    "output": {
+      "status": "ok",
+      "items": []
+    }
+  },
+  {
+    "instruction": "Проверь планировку: {\"rooms\":[{\"type\":\"living\",\"area\":19},{\"type\":\"kitchen\",\"area\":6},{\"type\":\"bedroom\",\"area\":10},{\"type\":\"bathroom\",\"area\":3},{\"type\":\"hall\",\"area\":7}],\"corridor_width\":1.2,\"wet_areas_grouped\":true}",
+    "input_lines": [],
+    "output_text": "Нарушение: площадь спальни 10 м² < 12 м².",
+    "output": {
+      "status": "violations",
+      "items": [
+        {
+          "type": "bedroom_area",
+          "current": 10,
+          "min": 12,
+          "location": "bedroom"
+        }
+      ]
+    }
+  },
+  {
+    "instruction": "Проверь планировку: {\"rooms\":[{\"type\":\"living\",\"area\":20},{\"type\":\"kitchen\",\"area\":8},{\"type\":\"bedroom\",\"area\":12},{\"type\":\"bathroom\",\"area\":4},{\"type\":\"hall\",\"area\":5}],\"corridor_width\":1.0,\"wet_areas_grouped\":true}",
+    "input_lines": [],
+    "output_text": "Нарушение: ширина коридора 1.0 м < 1.2 м.",
+    "output": {
+      "status": "violations",
+      "items": [
+        {
+          "type": "corridor_width",
+          "current": 1.0,
+          "min": 1.2,
+          "location": "hall"
+        }
+      ]
+    }
+  },
+  {
+    "instruction": "Проверь планировку: {\"rooms\":[{\"type\":\"living\",\"area\":25},{\"type\":\"kitchen\",\"area\":7},{\"type\":\"bedroom_1\",\"area\":14},{\"type\":\"bedroom_2\",\"area\":13},{\"type\":\"bathroom\",\"area\":5},{\"type\":\"hall\",\"area\":10}],\"corridor_width\":1.3,\"wet_areas_grouped\":true}",
+    "input_lines": [],
+    "output_text": "Нарушений не выявлено. Планировка соответствует нормам.",
+    "output": {
+      "status": "ok",
+      "items": []
+    }
+  },
+  {
+    "instruction": "Проверь планировку: {\"rooms\":[{\"type\":\"living\",\"area\":17},{\"type\":\"kitchen\",\"area\":6},{\"type\":\"bedroom\",\"area\":12},{\"type\":\"bathroom\",\"area\":2},{\"type\":\"hall\",\"area\":6}],\"corridor_width\":1.2,\"wet_areas_grouped\":true}",
+    "input_lines": [],
+    "output_text": "Нарушение: площадь санузла 2 м² < 3 м².",
+    "output": {
+      "status": "violations",
+      "items": [
+        {
+          "type": "bathroom_area",
+          "current": 2,
+          "min": 3,
+          "location": "bathroom"
+        }
+      ]
+    }
+  },
+  {
+    "instruction": "Проверь планировку: {\"rooms\":[{\"type\":\"living_kitchen\",\"area\":23},{\"type\":\"bedroom\",\"area\":13},{\"type\":\"bathroom\",\"area\":4},{\"type\":\"hall\",\"area\":7}],\"corridor_width\":1.2,\"wet_areas_grouped\":true}",
+    "input_lines": [],
+    "output_text": "Нарушений не выявлено. Планировка соответствует нормам.",
+    "output": {
+      "status": "ok",
+      "items": []
+    }
+  },
+  {
+    "instruction": "Проверь планировку: {\"rooms\":[{\"type\":\"living\",\"area\":16},{\"type\":\"kitchen\",\"area\":5},{\"type\":\"bedroom\",\"area\":12},{\"type\":\"bathroom\",\"area\":3},{\"type\":\"hall\",\"area\":4}],\"corridor_width\":1.1,\"wet_areas_grouped\":true}",
+    "input_lines": [],
+    "output_text": "Нарушения: площадь кухни 5 м² < 6 м²; ширина коридора 1.1 м < 1.2 м.",
+    "output": {
+      "status": "violations",
+      "items": [
+        {
+          "type": "kitchen_area",
+          "current": 5,
+          "min": 6,
+          "location": "kitchen"
+        },
+        {
+          "type": "corridor_width",
+          "current": 1.1,
+          "min": 1.2,
+          "location": "hall"
+        }
+      ]
+    }
+  },
+  {
+    "instruction": "Проверь планировку: {\"rooms\":[{\"type\":\"living\",\"area\":22},{\"type\":\"kitchen\",\"area\":8},{\"type\":\"bedroom\",\"area\":15},{\"type\":\"bathroom\",\"area\":5},{\"type\":\"hall\",\"area\":8}],\"corridor_width\":1.4,\"wet_areas_grouped\":true}",
+    "input_lines": [],
+    "output_text": "Нарушений не выявлено. Планировка соответствует нормам.",
+    "output": {
+      "status": "ok",
+      "items": []
+    }
+  },
+  {
+    "instruction": "Проверь планировку: {\"rooms\":[{\"type\":\"living\",\"area\":18},{\"type\":\"kitchen\",\"area\":6},{\"type\":\"bedroom_1\",\"area\":11},{\"type\":\"bedroom_2\",\"area\":13},{\"type\":\"bathroom\",\"area\":4},{\"type\":\"hall\",\"area\":7}],\"corridor_width\":1.2,\"wet_areas_grouped\":true}",
+    "input_lines": [],
+    "output_text": "Нарушение: площадь спальни 11 м² < 12 м².",
+    "output": {
+      "status": "violations",
+      "items": [
+        {
+          "type": "bedroom_area",
+          "current": 11,
+          "min": 12,
+          "location": "bedroom_1"
+        }
+      ]
+    }
+  },
+  {
+    "instruction": "Проверь планировку: {\"rooms\":[{\"type\":\"living\",\"area\":20},{\"type\":\"kitchen\",\"area\":7},{\"type\":\"bedroom\",\"area\":14},{\"type\":\"bathroom\",\"area\":4},{\"type\":\"hall\",\"area\":6}],\"corridor_width\":1.0,\"wet_areas_grouped\":false}",
+    "input_lines": [],
+    "output_text": "Нарушения: ширина коридора 1.0 м < 1.2 м; мокрые зоны не сгруппированы.",
+    "output": {
+      "status": "violations",
+      "items": [
+        {
+          "type": "corridor_width",
+          "current": 1.0,
+          "min": 1.2,
+          "location": "hall"
+        },
+        {
+          "type": "wet_areas_grouping",
+          "current": false,
+          "required": true,
+          "location": "bathroom"
+        }
+      ]
+    }
+  },
+  {
+    "instruction": "Проверь планировку: {\"rooms\":[{\"type\":\"living\",\"area\":30},{\"type\":\"kitchen\",\"area\":9},{\"type\":\"bedroom_1\",\"area\":14},{\"type\":\"bedroom_2\",\"area\":12},{\"type\":\"bedroom_3\",\"area\":13},{\"type\":\"bathroom\",\"area\":6},{\"type\":\"hall\",\"area\":12}],\"corridor_width\":1.3,\"wet_areas_grouped\":true}",
+    "input_lines": [],
+    "output_text": "Нарушений не выявлено. Планировка соответствует нормам.",
+    "output": {
+      "status": "ok",
+      "items": []
+    }
+  },
+  {
+    "instruction": "Проверь планировку: {\"rooms\":[{\"type\":\"living\",\"area\":19},{\"type\":\"kitchen\",\"area\":5},{\"type\":\"bedroom\",\"area\":12},{\"type\":\"bathroom\",\"area\":3},{\"type\":\"hall\",\"area\":5}],\"corridor_width\":1.1,\"wet_areas_grouped\":true}",
+    "input_lines": [],
+    "output_text": "Нарушения: площадь кухни 5 м² < 6 м²; ширина коридора 1.1 м < 1.2 м.",
+    "output": {
+      "status": "violations",
+      "items": [
+        {
+          "type": "kitchen_area",
+          "current": 5,
+          "min": 6,
+          "location": "kitchen"
+        },
+        {
+          "type": "corridor_width",
+          "current": 1.1,
+          "min": 1.2,
+          "location": "hall"
+        }
+      ]
+    }
+  },
+  {
+    "instruction": "Проверь планировку: {\"rooms\":[{\"type\":\"living\",\"area\":21},{\"type\":\"kitchen\",\"area\":8},{\"type\":\"bedroom\",\"area\":15},{\"type\":\"bathroom\",\"area\":5},{\"type\":\"hall\",\"area\":7}],\"corridor_width\":1.2,\"wet_areas_grouped\":true}",
+    "input_lines": [],
+    "output_text": "Нарушений не выявлено. Планировка соответствует нормам.",
+    "output": {
+      "status": "ok",
+      "items": []
+    }
+  },
+  {
+    "instruction": "Проверь планировку: {\"rooms\":[{\"type\":\"living\",\"area\":18},{\"type\":\"kitchen\",\"area\":6},{\"type\":\"bedroom\",\"area\":10},{\"type\":\"bathroom\",\"area\":4},{\"type\":\"hall\",\"area\":6}],\"corridor_width\":1.2,\"wet_areas_grouped\":true}",
+    "input_lines": [],
+    "output_text": "Нарушение: площадь спальни 10 м² < 12 м².",
+    "output": {
+      "status": "violations",
+      "items": [
+        {
+          "type": "bedroom_area",
+          "current": 10,
+          "min": 12,
+          "location": "bedroom"
+        }
+      ]
+    }
+  },
+  {
+    "instruction": "Проверь планировку: {\"rooms\":[{\"type\":\"living\",\"area\":24},{\"type\":\"kitchen\",\"area\":7},{\"type\":\"bedroom\",\"area\":14},{\"type\":\"bathroom\",\"area\":4},{\"type\":\"hall\",\"area\":9}],\"corridor_width\":1.3,\"wet_areas_grouped\":true}",
+    "input_lines": [],
+    "output_text": "Нарушений не выявлено. Планировка соответствует нормам.",
+    "output": {
+      "status": "ok",
+      "items": []
+    }
+  },
+  {
+    "instruction": "Проверь планировку: {\"rooms\":[{\"type\":\"living\",\"area\":17},{\"type\":\"kitchen\",\"area\":6},{\"type\":\"bedroom\",\"area\":13},{\"type\":\"bathroom\",\"area\":3},{\"type\":\"hall\",\"area\":5}],\"corridor_width\":1.0,\"wet_areas_grouped\":true}",
+    "input_lines": [],
+    "output_text": "Нарушение: ширина коридора 1.0 м < 1.2 м.",
+    "output": {
+      "status": "violations",
+      "items": [
+        {
+          "type": "corridor_width",
+          "current": 1.0,
+          "min": 1.2,
+          "location": "hall"
+        }
+      ]
+    }
+  },
+  {
+    "instruction": "Проверь планировку: {\"rooms\":[{\"type\":\"living\",\"area\":23},{\"type\":\"kitchen\",\"area\":8},{\"type\":\"bedroom_1\",\"area\":14},{\"type\":\"bedroom_2\",\"area\":12},{\"type\":\"bathroom\",\"area\":5},{\"type\":\"hall\",\"area\":8}],\"corridor_width\":1.2,\"wet_areas_grouped\":true}",
+    "input_lines": [],
+    "output_text": "Нарушений не выявлено. Планировка соответствует нормам.",
+    "output": {
+      "status": "ok",
+      "items": []
+    }
+  },
+  {
+    "instruction": "Проверь планировку: {\"rooms\":[{\"type\":\"living\",\"area\":18},{\"type\":\"kitchen\",\"area\":4},{\"type\":\"bedroom\",\"area\":12},{\"type\":\"bathroom\",\"area\":2},{\"type\":\"hall\",\"area\":6}],\"corridor_width\":1.1,\"wet_areas_grouped\":true}",
+    "input_lines": [],
+    "output_text": "Нарушения: площадь кухни 4 м² < 6 м²; площадь санузла 2 м² < 3 м²; ширина коридора 1.1 м < 1.2 м.",
+    "output": {
+      "status": "violations",
+      "items": [
+        {
+          "type": "kitchen_area",
+          "current": 4,
+          "min": 6,
+          "location": "kitchen"
+        },
+        {
+          "type": "bathroom_area",
+          "current": 2,
+          "min": 3,
+          "location": "bathroom"
+        },
+        {
+          "type": "corridor_width",
+          "current": 1.1,
+          "min": 1.2,
+          "location": "hall"
+        }
+      ]
+    }
+  },
+  {
+    "instruction": "Проверь планировку: {\"rooms\":[{\"type\":\"living\",\"area\":26},{\"type\":\"kitchen\",\"area\":9},{\"type\":\"bedroom_1\",\"area\":16},{\"type\":\"bedroom_2\",\"area\":14},{\"type\":\"bathroom\",\"area\":6},{\"type\":\"hall\",\"area\":10}],\"corridor_width\":1.3,\"wet_areas_grouped\":true}",
+    "input_lines": [],
+    "output_text": "Нарушений не выявлено. Планировка соответствует нормам.",
+    "output": {
+      "status": "ok",
+      "items": []
+    }
+  },
+  {
+    "instruction": "Проверь планировку: {\"rooms\":[{\"type\":\"living\",\"area\":20},{\"type\":\"kitchen\",\"area\":5},{\"type\":\"bedroom\",\"area\":13},{\"type\":\"bathroom\",\"area\":2.5},{\"type\":\"hall\",\"area\":7}],\"corridor_width\":1.0,\"wet_areas_grouped\":false}",
+    "input_lines": [],
+    "output_text": "Нарушения: ширина коридора 1.0 м < 1.2 м; площадь кухни 5 м² < 6 м²; площадь санузла 2.5 м² < 3 м²; мокрые зоны не сгруппированы.",
+    "output": {
+      "status": "violations",
+      "items": [
+        {
+          "type": "corridor_width",
+          "current": 1.0,
+          "min": 1.2,
+          "location": "hall"
+        },
+        {
+          "type": "kitchen_area",
+          "current": 5,
+          "min": 6,
+          "location": "kitchen"
+        },
+        {
+          "type": "bathroom_area",
+          "current": 2.5,
+          "min": 3,
+          "location": "bathroom"
+        },
+        {
+          "type": "wet_areas_grouping",
+          "current": false,
+          "required": true,
+          "location": "bathroom"
+        }
+      ]
+    }
+  },
+  {
+    "instruction": "Проверь планировку: {\"rooms\":[{\"type\":\"living\",\"area\":22},{\"type\":\"kitchen\",\"area\":5.5},{\"type\":\"bedroom\",\"area\":11.5},{\"type\":\"bathroom\",\"area\":3},{\"type\":\"hall\",\"area\":8}],\"corridor_width\":1.2,\"wet_areas_grouped\":true}",
+    "input_lines": [],
+    "output_text": "Нарушения: площадь кухни 5.5 м² < 6 м²; площадь спальни 11.5 м² < 12 м².",
+    "output": {
+      "status": "violations",
+      "items": [
+        {
+          "type": "kitchen_area",
+          "current": 5.5,
+          "min": 6,
+          "location": "kitchen"
+        },
+        {
+          "type": "bedroom_area",
+          "current": 11.5,
+          "min": 12,
+          "location": "bedroom"
+        }
+      ]
+    }
+  },
+  {
+    "instruction": "Проверь планировку: {\"rooms\":[{\"type\":\"living\",\"area\":25},{\"type\":\"kitchen\",\"area\":8},{\"type\":\"bedroom_1\",\"area\":15},{\"type\":\"bedroom_2\",\"area\":14},{\"type\":\"bathroom\",\"area\":6},{\"type\":\"hall\",\"area\":10}],\"corridor_width\":1.3,\"wet_areas_grouped\":true}",
+    "input_lines": [],
+    "output_text": "Нарушений не выявлено. Планировка соответствует нормам.",
+    "output": {
+      "status": "ok",
+      "items": []
+    }
+  },
+  {
+    "instruction": "Проверь планировку: {\"rooms\":[{\"type\":\"living\",\"area\":18},{\"type\":\"kitchen\",\"area\":6},{\"type\":\"bedroom\",\"area\":12},{\"type\":\"bathroom\",\"area\":3},{\"type\":\"hall\",\"area\":6}],\"corridor_width\":1.1,\"wet_areas_grouped\":true}",
+    "input_lines": [],
+    "output_text": "Нарушение: ширина коридора 1.1 м < 1.2 м.",
+    "output": {
+      "status": "violations",
+      "items": [
+        {
+          "type": "corridor_width",
+          "current": 1.1,
+          "min": 1.2,
+          "location": "hall"
+        }
+      ]
+    }
+  },
+  {
+    "instruction": "Проверь планировку: {\"rooms\":[{\"type\":\"living\",\"area\":24},{\"type\":\"kitchen\",\"area\":7},{\"type\":\"bedroom\",\"area\":11.8},{\"type\":\"bathroom\",\"area\":4},{\"type\":\"hall\",\"area\":8}],\"corridor_width\":1.3,\"wet_areas_grouped\":true}",
+    "input_lines": [],
+    "output_text": "Нарушение: площадь спальни 11.8 м² < 12 м².",
+    "output": {
+      "status": "violations",
+      "items": [
+        {
+          "type": "bedroom_area",
+          "current": 11.8,
+          "min": 12,
+          "location": "bedroom"
+        }
+      ]
+    }
+  },
+  {
+    "instruction": "Проверь планировку: {\"rooms\":[{\"type\":\"living\",\"area\":20},{\"type\":\"kitchen\",\"area\":5.8},{\"type\":\"bedroom\",\"area\":13},{\"type\":\"bathroom\",\"area\":2.8},{\"type\":\"hall\",\"area\":7}],\"corridor_width\":1.2,\"wet_areas_grouped\":true}",
+    "input_lines": [],
+    "output_text": "Нарушения: площадь кухни 5.8 м² < 6 м²; площадь санузла 2.8 м² < 3 м².",
+    "output": {
+      "status": "violations",
+      "items": [
+        {
+          "type": "kitchen_area",
+          "current": 5.8,
+          "min": 6,
+          "location": "kitchen"
+        },
+        {
+          "type": "bathroom_area",
+          "current": 2.8,
+          "min": 3,
+          "location": "bathroom"
+        }
+      ]
+    }
+  },
+  {
+    "instruction": "Проверь планировку: {\"rooms\":[{\"type\":\"living\",\"area\":23},{\"type\":\"kitchen\",\"area\":7},{\"type\":\"bedroom\",\"area\":14},{\"type\":\"bathroom\",\"area\":5},{\"type\":\"hall\",\"area\":8}],\"corridor_width\":1.4,\"wet_areas_grouped\":false}",
+    "input_lines": [],
+    "output_text": "Нарушение: мокрые зоны не сгруппированы.",
+    "output": {
+      "status": "violations",
+      "items": [
+        {
+          "type": "wet_areas_grouping",
+          "current": false,
+          "required": true,
+          "location": "bathroom"
+        }
+      ]
+    }
+  },
+  {
+    "instruction": "Проверь планировку: {\"rooms\":[{\"type\":\"living\",\"area\":19},{\"type\":\"kitchen\",\"area\":6},{\"type\":\"bedroom\",\"area\":13},{\"type\":\"bathroom\",\"area\":4},{\"type\":\"hall\",\"area\":5}],\"corridor_width\":0.9,\"wet_areas_grouped\":true}",
+    "input_lines": [],
+    "output_text": "Нарушение: ширина коридора 0.9 м < 1.2 м.",
+    "output": {
+      "status": "violations",
+      "items": [
+        {
+          "type": "corridor_width",
+          "current": 0.9,
+          "min": 1.2,
+          "location": "hall"
+        }
+      ]
+    }
+  },
+  {
+    "instruction": "Проверь планировку: {\"rooms\":[{\"type\":\"living\",\"area\":21},{\"type\":\"kitchen\",\"area\":7},{\"type\":\"bedroom\",\"area\":12.5},{\"type\":\"bathroom\",\"area\":2.5},{\"type\":\"hall\",\"area\":7}],\"corridor_width\":1.2,\"wet_areas_grouped\":true}",
+    "input_lines": [],
+    "output_text": "Нарушение: площадь санузла 2.5 м² < 3 м².",
+    "output": {
+      "status": "violations",
+      "items": [
+        {
+          "type": "bathroom_area",
+          "current": 2.5,
+          "min": 3,
+          "location": "bathroom"
+        }
+      ]
+    }
+  },
+  {
+    "instruction": "Проверь планировку: {\"rooms\":[{\"type\":\"living\",\"area\":20},{\"type\":\"kitchen\",\"area\":5.2},{\"type\":\"bedroom\",\"area\":12.2},{\"type\":\"bathroom\",\"area\":3.2},{\"type\":\"hall\",\"area\":6}],\"corridor_width\":1.15,\"wet_areas_grouped\":true}",
+    "input_lines": [],
+    "output_text": "Нарушения: площадь кухни 5.2 м² < 6 м²; ширина коридора 1.15 м < 1.2 м.",
+    "output": {
+      "status": "violations",
+      "items": [
+        {
+          "type": "kitchen_area",
+          "current": 5.2,
+          "min": 6,
+          "location": "kitchen"
+        },
+        {
+          "type": "corridor_width",
+          "current": 1.15,
+          "min": 1.2,
+          "location": "hall"
+        }
+      ]
+    }
+  },
+  {
+    "instruction": "Проверь планировку: {\"rooms\":[{\"type\":\"living\",\"area\":28},{\"type\":\"kitchen\",\"area\":9},{\"type\":\"bedroom_1\",\"area\":15},{\"type\":\"bedroom_2\",\"area\":14},{\"type\":\"bathroom_1\",\"area\":5},{\"type\":\"bathroom_2\",\"area\":4},{\"type\":\"hall\",\"area\":11}],\"corridor_width\":1.3,\"wet_areas_grouped\":true}",
+    "input_lines": [],
+    "output_text": "Нарушений не выявлено. Планировка соответствует нормам.",
+    "output": {
+      "status": "ok",
+      "items": []
+    }
+  },
+  {
+    "instruction": "Проверь планировку: {\"rooms\":[{\"type\":\"living\",\"area\":17},{\"type\":\"kitchen\",\"area\":6.5},{\"type\":\"bedroom\",\"area\":9},{\"type\":\"bathroom\",\"area\":4},{\"type\":\"hall\",\"area\":6}],\"corridor_width\":1.3,\"wet_areas_grouped\":true}",
+    "input_lines": [],
+    "output_text": "Нарушение: площадь спальни 9 м² < 12 м².",
+    "output": {
+      "status": "violations",
+      "items": [
+        {
+          "type": "bedroom_area",
+          "current": 9,
+          "min": 12,
+          "location": "bedroom"
+        }
+      ]
+    }
+  },
+  {
+    "instruction": "Проверь планировку: {\"rooms\":[{\"type\":\"living\",\"area\":20},{\"type\":\"kitchen\",\"area\":6},{\"type\":\"bedroom\",\"area\":12},{\"type\":\"bathroom\",\"area\":3},{\"type\":\"hall\",\"area\":7}],\"corridor_width\":1.0,\"wet_areas_grouped\":false}",
+    "input_lines": [],
+    "output_text": "Нарушения: ширина коридора 1.0 м < 1.2 м; мокрые зоны не сгруппированы.",
+    "output": {
+      "status": "violations",
+      "items": [
+        {
+          "type": "corridor_width",
+          "current": 1.0,
+          "min": 1.2,
+          "location": "hall"
+        },
+        {
+          "type": "wet_areas_grouping",
+          "current": false,
+          "required": true,
+          "location": "bathroom"
+        }
+      ]
+    }
+  },
+  {
+    "instruction": "Проверь планировку: {\"rooms\":[{\"type\":\"living\",\"area\":24},{\"type\":\"kitchen\",\"area\":5.6},{\"type\":\"bedroom\",\"area\":14},{\"type\":\"bathroom\",\"area\":2.7},{\"type\":\"hall\",\"area\":8}],\"corridor_width\":1.25,\"wet_areas_grouped\":true}",
+    "input_lines": [],
+    "output_text": "Нарушения: площадь кухни 5.6 м² < 6 м²; площадь санузла 2.7 м² < 3 м².",
+    "output": {
+      "status": "violations",
+      "items": [
+        {
+          "type": "kitchen_area",
+          "current": 5.6,
+          "min": 6,
+          "location": "kitchen"
+        },
+        {
+          "type": "bathroom_area",
+          "current": 2.7,
+          "min": 3,
+          "location": "bathroom"
+        }
+      ]
+    }
+  },
+  {
+    "instruction": "Проверь планировку: {\"rooms\":[{\"type\":\"living\",\"area\":25},{\"type\":\"kitchen\",\"area\":6.2},{\"type\":\"bedroom\",\"area\":13.5},{\"type\":\"bathroom\",\"area\":4.5},{\"type\":\"hall\",\"area\":9}],\"corridor_width\":1.05,\"wet_areas_grouped\":true}",
+    "input_lines": [],
+    "output_text": "Нарушение: ширина коридора 1.05 м < 1.2 м.",
+    "output": {
+      "status": "violations",
+      "items": [
+        {
+          "type": "corridor_width",
+          "current": 1.05,
+          "min": 1.2,
+          "location": "hall"
+        }
+      ]
+    }
+  },
+  {
+    "instruction": "Проверь планировку: {\"rooms\":[{\"type\":\"living\",\"area\":23},{\"type\":\"kitchen\",\"area\":5.9},{\"type\":\"bedroom\",\"area\":12.8},{\"type\":\"bathroom\",\"area\":3},{\"type\":\"hall\",\"area\":8}],\"corridor_width\":1.3,\"wet_areas_grouped\":true}",
+    "input_lines": [],
+    "output_text": "Нарушение: площадь кухни 5.9 м² < 6 м².",
+    "output": {
+      "status": "violations",
+      "items": [
+        {
+          "type": "kitchen_area",
+          "current": 5.9,
+          "min": 6,
+          "location": "kitchen"
+        }
+      ]
+    }
+  },
+  {
+    "instruction": "Проверь планировку: {\"rooms\":[{\"type\":\"living\",\"area\":30},{\"type\":\"kitchen\",\"area\":10},{\"type\":\"bedroom_1\",\"area\":16},{\"type\":\"bedroom_2\",\"area\":15},{\"type\":\"bathroom_1\",\"area\":6},{\"type\":\"bathroom_2\",\"area\":5},{\"type\":\"hall\",\"area\":12}],\"corridor_width\":1.4,\"wet_areas_grouped\":true}",
+    "input_lines": [],
+    "output_text": "Нарушений не выявлено. Планировка соответствует нормам.",
+    "output": {
+      "status": "ok",
+      "items": []
+    }
+  },
+  {
+    "instruction": "Проверь планировку: {\"rooms\":[{\"type\":\"living\",\"area\":19},{\"type\":\"kitchen\",\"area\":6.1},{\"type\":\"bedroom\",\"area\":11.2},{\"type\":\"bathroom\",\"area\":3.5},{\"type\":\"hall\",\"area\":7}],\"corridor_width\":1.1,\"wet_areas_grouped\":true}",
+    "input_lines": [],
+    "output_text": "Нарушения: площадь спальни 11.2 м² < 12 м²; ширина коридора 1.1 м < 1.2 м.",
+    "output": {
+      "status": "violations",
+      "items": [
+        {
+          "type": "bedroom_area",
+          "current": 11.2,
+          "min": 12,
+          "location": "bedroom"
+        },
+        {
+          "type": "corridor_width",
+          "current": 1.1,
+          "min": 1.2,
+          "location": "hall"
+        }
+      ]
+    }
+  },
+  {
+    "instruction": "Проверь планировку: {\"rooms\":[{\"type\":\"living\",\"area\":22},{\"type\":\"kitchen\",\"area\":6.4},{\"type\":\"bedroom\",\"area\":12.6},{\"type\":\"bathroom\",\"area\":2.9},{\"type\":\"hall\",\"area\":6}],\"corridor_width\":1.0,\"wet_areas_grouped\":true}",
+    "input_lines": [],
+    "output_text": "Нарушения: площадь санузла 2.9 м² < 3 м²; ширина коридора 1.0 м < 1.2 м.",
+    "output": {
+      "status": "violations",
+      "items": [
+        {
+          "type": "bathroom_area",
+          "current": 2.9,
+          "min": 3,
+          "location": "bathroom"
+        },
+        {
+          "type": "corridor_width",
+          "current": 1.0,
+          "min": 1.2,
+          "location": "hall"
+        }
+      ]
+    }
+  },
+  {
+    "instruction": "Проверь планировку: {\"rooms\":[{\"type\":\"living\",\"area\":24},{\"type\":\"kitchen\",\"area\":6.3},{\"type\":\"bedroom\",\"area\":13.1},{\"type\":\"bathroom\",\"area\":3.8},{\"type\":\"hall\",\"area\":9}],\"corridor_width\":1.2,\"wet_areas_grouped\":false}",
+    "input_lines": [],
+    "output_text": "Нарушение: мокрые зоны не сгруппированы.",
+    "output": {
+      "status": "violations",
+      "items": [
+        {
+          "type": "wet_areas_grouping",
+          "current": false,
+          "required": true,
+          "location": "bathroom"
+        }
+      ]
+    }
+  },
+  {
+    "instruction": "Проверь планировку: {\"rooms\":[{\"type\":\"living\",\"area\":21},{\"type\":\"kitchen\",\"area\":5.5},{\"type\":\"bedroom\",\"area\":12.4},{\"type\":\"bathroom\",\"area\":3.1},{\"type\":\"hall\",\"area\":7}],\"corridor_width\":1.15,\"wet_areas_grouped\":true}",
+    "input_lines": [],
+    "output_text": "Нарушения: площадь кухни 5.5 м² < 6 м²; ширина коридора 1.15 м < 1.2 м.",
+    "output": {
+      "status": "violations",
+      "items": [
+        {
+          "type": "kitchen_area",
+          "current": 5.5,
+          "min": 6,
+          "location": "kitchen"
+        },
+        {
+          "type": "corridor_width",
+          "current": 1.15,
+          "min": 1.2,
+          "location": "hall"
+        }
+      ]
+    }
+  },
+  {
+    "instruction": "Проверь планировку: {\"rooms\":[{\"type\":\"living\",\"area\":20},{\"type\":\"kitchen\",\"area\":6.6},{\"type\":\"bedroom\",\"area\":11.9},{\"type\":\"bathroom\",\"area\":4.2},{\"type\":\"hall\",\"area\":6}],\"corridor_width\":1.25,\"wet_areas_grouped\":true}",
+    "input_lines": [],
+    "output_text": "Нарушение: площадь спальни 11.9 м² < 12 м².",
+    "output": {
+      "status": "violations",
+      "items": [
+        {
+          "type": "bedroom_area",
+          "current": 11.9,
+          "min": 12,
+          "location": "bedroom"
+        }
+      ]
+    }
+  },
+  {
+    "instruction": "Проверь планировку: {\"rooms\":[{\"type\":\"living\",\"area\":26},{\"type\":\"kitchen\",\"area\":6.7},{\"type\":\"bedroom\",\"area\":14.2},{\"type\":\"bathroom\",\"area\":3.6},{\"type\":\"hall\",\"area\":9}],\"corridor_width\":1.05,\"wet_areas_grouped\":true}",
+    "input_lines": [],
+    "output_text": "Нарушение: ширина коридора 1.05 м < 1.2 м.",
+    "output": {
+      "status": "violations",
+      "items": [
+        {
+          "type": "corridor_width",
+          "current": 1.05,
+          "min": 1.2,
+          "location": "hall"
+        }
+      ]
+    }
+  },
+  {
+    "instruction": "Проверь планировку: {\"rooms\":[{\"type\":\"living\",\"area\":22},{\"type\":\"kitchen\",\"area\":5.3},{\"type\":\"bedroom\",\"area\":12.1},{\"type\":\"bathroom\",\"area\":3.4},{\"type\":\"hall\",\"area\":8}],\"corridor_width\":1.1,\"wet_areas_grouped\":false}",
+    "input_lines": [],
+    "output_text": "Нарушения: площадь кухни 5.3 м² < 6 м²; ширина коридора 1.1 м < 1.2 м; мокрые зоны не сгруппированы.",
+    "output": {
+      "status": "violations",
+      "items": [
+        {
+          "type": "kitchen_area",
+          "current": 5.3,
+          "min": 6,
+          "location": "kitchen"
+        },
+        {
+          "type": "corridor_width",
+          "current": 1.1,
+          "min": 1.2,
+          "location": "hall"
+        },
+        {
+          "type": "wet_areas_grouping",
+          "current": false,
+          "required": true,
+          "location": "bathroom"
+        }
+      ]
+    }
+  },
+  {
+    "instruction": "Проверь планировку: {\"rooms\":[{\"type\":\"living\",\"area\":27},{\"type\":\"kitchen\",\"area\":8.5},{\"type\":\"bedroom_1\",\"area\":15},{\"type\":\"bedroom_2\",\"area\":14},{\"type\":\"bathroom_1\",\"area\":5},{\"type\":\"bathroom_2\",\"area\":4},{\"type\":\"hall\",\"area\":11}],\"corridor_width\":1.3,\"wet_areas_grouped\":true}",
+    "input_lines": [],
+    "output_text": "Нарушений не выявлено. Планировка соответствует нормам.",
+    "output": {
+      "status": "ok",
+      "items": []
+    }
+  }
+]

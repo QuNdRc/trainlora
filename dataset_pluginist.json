@@ -1,0 +1,606 @@
+[
+  {
+    "instruction": "Преврати план в команды примитивов движка.",
+    "input_lines": [
+      "Текущая планировка (grid):",
+      "Room r0: Kitchen, pivot (4, 8), cells [[-1,0],[0,0],[1,0],[2,0],[0,1],[1,1]], priority 5",
+      "Room r1: Bathroom, pivot (8, 8), cells [[0,0],[1,0],[0,1],[1,1]], priority 3",
+      "Room r2: LivingRoom, pivot (4, 4), cells [[-1,0],[0,0],[1,0],[0,1],[1,1]], priority 4",
+      "Room r3: Corridor, pivot (8, 4), cells [[0,0],[1,0],[2,0]], priority 2",
+      "[CONFLICTS] r0,r1",
+      "[DOORS] d0,r2,r3,8,4",
+      "Задача: сдвинуть кухню так, чтобы она не наезжала на санузел, и добавить дверь между кухней и коридором."
+    ],
+    "output_text": "Сдвигаю кухню на одну клетку влево, добавляю дверь к коридору.",
+    "output": {
+      "commands": [
+        {"action": "shift_room", "room_id": "0", "dx": -1, "dy": 0, "reason": "устранить наложение с санузлом"},
+        {"action": "add_door", "room_a": "0", "room_b": "3", "door_x": 5, "door_y": 8, "reason": "связать кухню с коридором"}
+      ],
+      "explanation": "Кухня наезжает на санузел — сдвигаю её влево и добавляю дверь в коридор."
+    }
+  },
+  {
+    "instruction": "Преврати план в команды примитивов движка.",
+    "input_lines": [
+      "Текущая планировка (grid):",
+      "Room r0: Bathroom, pivot (2, 2), cells [[0,0],[1,0],[0,1],[1,1]], priority 3",
+      "Room r1: LivingRoom, pivot (6, 2), cells [[-1,0],[0,0],[1,0],[0,1],[1,1]], priority 4",
+      "Room r2: Corridor, pivot (6, 6), cells [[0,0],[1,0],[2,0]], priority 1",
+      "Room r3: Kitchen, pivot (2, 6), cells [[-1,0],[0,0],[1,0],[2,0],[0,1],[1,1]], priority 5",
+      "[CONFLICTS] r0,r3",
+      "Задача: повернуть ванную на 90 градусов по часовой, чтобы освободить место, и добавить дверь между ванной и коридором."
+    ],
+    "output_text": "Поворачиваю ванную, добавляю дверь к коридору.",
+    "output": {
+      "commands": [
+        {"action": "rotate_room", "room_id": "0", "angle_quarters": 1, "reason": "освободить пространство от конфликта"},
+        {"action": "add_door", "room_a": "0", "room_b": "2", "door_x": 3, "door_y": 2, "reason": "соединить ванную с коридором"}
+      ],
+      "explanation": "Ванная конфликтует — поворачиваю её и добавляю дверь."
+    }
+  },
+  {
+    "instruction": "Преврати план в команды примитивов движка.",
+    "input_lines": [
+      "Текущая планировка (grid):",
+      "Room r0: LivingRoom, pivot (4, 4), cells [[-1,0],[0,0],[1,0],[0,1],[1,1]], priority 2",
+      "Room r1: Kitchen, pivot (8, 4), cells [[-1,0],[0,0],[1,0],[2,0],[0,1],[1,1]], priority 5",
+      "Room r2: Bathroom, pivot (4, 8), cells [[0,0],[1,0],[0,1],[1,1]], priority 3",
+      "Room r3: Corridor, pivot (8, 8), cells [[0,0],[1,0],[2,0]], priority 1",
+      "[CONFLICTS] r0,r1",
+      "Задача: переместить гостиную на клетку вниз, а кухню на клетку вверх, после чего разрешить все коллизии."
+    ],
+    "output_text": "Сдвигаю гостиную вниз, кухню вверх, затем вызываю разрешение коллизий.",
+    "output": {
+      "commands": [
+        {"action": "shift_room", "room_id": "0", "dx": 0, "dy": -1, "reason": "освободить место для кухни"},
+        {"action": "shift_room", "room_id": "1", "dx": 0, "dy": 1, "reason": "уменьшить наложение"},
+        {"action": "resolve_collisions", "max_iterations": 5, "reason": "устранить оставшиеся наложения"}
+      ],
+      "explanation": "Сдвигаю обе комнаты и запускаю физическое разрешение коллизий."
+    }
+  },
+  {
+    "instruction": "Преврати план в команды примитивов движка.",
+    "input_lines": [
+      "Текущая планировка (grid):",
+      "Room r0: Corridor, pivot (5, 5), cells [[-1,0],[0,0],[1,0],[0,1],[1,1]], priority 1",
+      "Room r1: Kitchen, pivot (2, 2), cells [[-1,0],[0,0],[1,0],[2,0],[0,1],[1,1]], priority 4",
+      "Room r2: LivingRoom, pivot (8, 2), cells [[-1,0],[0,0],[1,0],[0,1],[1,1]], priority 3",
+      "[DOORS] d0,r1,r0,3,4",
+      "Задача: добавить новую ванную комнату в сетку, затем добавить дверь между ванной и коридором."
+    ],
+    "output_text": "Добавляю ванную и дверь к коридору.",
+    "output": {
+      "commands": [
+        {"action": "add_grid_room", "pivot_x": 5, "pivot_y": 2, "local_cells": [0,0,1,0,0,1,1,1], "room_type": 3, "priority": 2, "reason": "создать санузел"},
+        {"action": "add_door", "room_a": "0", "room_b": "2", "door_x": 5, "door_y": 3, "reason": "соединить ванную с коридором"}
+      ],
+      "explanation": "Создаю новую ванную комнату и связываю её с коридором."
+    }
+  },
+  {
+    "instruction": "Преврати план в команды примитивов движка.",
+    "input_lines": [
+      "Текущая планировка (grid):",
+      "Room r0: LivingRoom, pivot (3, 3), cells [[-1,0],[0,0],[1,0],[0,1],[1,1]], priority 2",
+      "Room r1: Kitchen, pivot (6, 3), cells [[-1,0],[0,0],[1,0],[2,0],[0,1],[1,1]], priority 5",
+      "Room r2: Bathroom, pivot (3, 6), cells [[0,0],[1,0],[0,1],[1,1]], priority 3",
+      "Room r3: Corridor, pivot (6, 6), cells [[0,0],[1,0],[2,0]], priority 1",
+      "[CONFLICTS] r0,r1",
+      "[DOORS] d0,r2,r3,5,6",
+      "Задача: удалить гостиную и добавить дверь между кухней и коридором."
+    ],
+    "output_text": "Удаляю гостиную, добавляю дверь кухня-коридор.",
+    "output": {
+      "commands": [
+        {"action": "remove_room", "room_id": "0", "reason": "освободить место"},
+        {"action": "add_door", "room_a": "1", "room_b": "3", "door_x": 7, "door_y": 6, "reason": "связать кухню с коридором"}
+      ],
+      "explanation": "Гостиная удаляется, добавляется дверь между кухней и коридором."
+    }
+  },
+  {
+    "instruction": "Преврати план в команды примитивов движка.",
+    "input_lines": [
+      "Текущая планировка (grid):",
+      "Room r0: Kitchen, pivot (4, 4), cells [[-1,0],[0,0],[1,0],[2,0],[0,1],[1,1]], priority 4",
+      "Room r1: LivingRoom, pivot (7, 4), cells [[-1,0],[0,0],[1,0],[0,1],[1,1]], priority 3",
+      "Room r2: Corridor, pivot (7, 7), cells [[0,0],[1,0],[2,0]], priority 1",
+      "Room r3: Bathroom, pivot (4, 7), cells [[0,0],[1,0],[0,1],[1,1]], priority 2",
+      "[CONFLICTS] r0,r1",
+      "Задача: сдвинуть кухню влево на 1, повернуть гостиную на 180, добавить дверь между гостиной и коридором."
+    ],
+    "output_text": "Сдвигаю кухню, поворачиваю гостиную, добавляю дверь.",
+    "output": {
+      "commands": [
+        {"action": "shift_room", "room_id": "0", "dx": -1, "dy": 0, "reason": "устранить наложение"},
+        {"action": "rotate_room", "room_id": "1", "angle_quarters": 2, "reason": "оптимизировать форму"},
+        {"action": "add_door", "room_a": "1", "room_b": "2", "door_x": 8, "door_y": 6, "reason": "соединить гостиную с коридором"}
+      ],
+      "explanation": "Кухня сдвигается, гостиная поворачивается, добавляется дверь."
+    }
+  },
+  {
+    "instruction": "Преврати план в команды примитивов движка.",
+    "input_lines": [
+      "Текущая планировка (grid):",
+      "Room r0: Corridor, pivot (5, 5), cells [[-1,0],[0,0],[1,0],[0,1],[1,1]], priority 1",
+      "Room r1: LivingRoom, pivot (2, 2), cells [[-1,0],[0,0],[1,0],[0,1],[1,1]], priority 3",
+      "Room r2: Kitchen, pivot (8, 2), cells [[-1,0],[0,0],[1,0],[2,0],[0,1],[1,1]], priority 4",
+      "Room r3: Bathroom, pivot (2, 7), cells [[0,0],[1,0],[0,1],[1,1]], priority 2",
+      "[DOORS] d0,r1,r0,3,4",
+      "Задача: переместить кухню на клетку влево, добавить дверь между кухней и ванной."
+    ],
+    "output_text": "Перемещаю кухню, добавляю дверь к ванной.",
+    "output": {
+      "commands": [
+        {"action": "shift_room", "room_id": "2", "dx": -1, "dy": 0, "reason": "уменьшить расстояние до ванной"},
+        {"action": "add_door", "room_a": "2", "room_b": "3", "door_x": 6, "door_y": 3, "reason": "соединить кухню с ванной"}
+      ],
+      "explanation": "Кухня сдвигается и добавляется дверь."
+    }
+  },
+  {
+    "instruction": "Преврати план в команды примитивов движка.",
+    "input_lines": [
+      "Текущая планировка (grid):",
+      "Room r0: Bathroom, pivot (4, 4), cells [[0,0],[1,0],[0,1],[1,1]], priority 2",
+      "Room r1: LivingRoom, pivot (7, 4), cells [[-1,0],[0,0],[1,0],[0,1],[1,1]], priority 3",
+      "Room r2: Corridor, pivot (7, 7), cells [[0,0],[1,0],[2,0]], priority 1",
+      "Room r3: Kitchen, pivot (2, 7), cells [[-1,0],[0,0],[1,0],[2,0],[0,1],[1,1]], priority 4",
+      "[CONFLICTS] r0,r1",
+      "Задача: повернуть ванную на 90, затем сдвинуть гостиную на 1 вправо, после чего разрешить коллизии."
+    ],
+    "output_text": "Поворачиваю ванную, сдвигаю гостиную, запускаю разрешение коллизий.",
+    "output": {
+      "commands": [
+        {"action": "rotate_room", "room_id": "0", "angle_quarters": 1, "reason": "изменить форму для устранения конфликта"},
+        {"action": "shift_room", "room_id": "1", "dx": 1, "dy": 0, "reason": "уйти от ванной"},
+        {"action": "resolve_collisions", "max_iterations": 3, "reason": "финальная очистка наложений"}
+      ],
+      "explanation": "Ванная поворачивается, гостиная сдвигается, затем коллизии разрешаются."
+    }
+  },
+  {
+    "instruction": "Преврати план в команды примитивов движка.",
+    "input_lines": [
+      "Текущая планировка (grid):",
+      "Room r0: LivingRoom, pivot (3, 3), cells [[-1,0],[0,0],[1,0],[0,1],[1,1]], priority 2",
+      "Room r1: Kitchen, pivot (6, 3), cells [[-1,0],[0,0],[1,0],[2,0],[0,1],[1,1]], priority 5",
+      "Room r2: Corridor, pivot (6, 6), cells [[0,0],[1,0],[2,0]], priority 1",
+      "Room r3: Bathroom, pivot (3, 6), cells [[0,0],[1,0],[0,1],[1,1]], priority 3",
+      "[CONFLICTS] r0,r1",
+      "Задача: удалить гостиную, сдвинуть кухню влево, добавить дверь кухня-коридор."
+    ],
+    "output_text": "Удаляю гостиную, сдвигаю кухню, добавляю дверь.",
+    "output": {
+      "commands": [
+        {"action": "remove_room", "room_id": "0", "reason": "освободить пространство"},
+        {"action": "shift_room", "room_id": "1", "dx": -1, "dy": 0, "reason": "сместить кухню"},
+        {"action": "add_door", "room_a": "1", "room_b": "2", "door_x": 6, "door_y": 6, "reason": "соединить кухню с коридором"}
+      ],
+      "explanation": "Гостиная удаляется, кухня сдвигается и добавляется дверь."
+    }
+  },
+  {
+    "instruction": "Преврати план в команды примитивов движка.",
+    "input_lines": [
+      "Текущая планировка (grid):",
+      "Room r0: Kitchen, pivot (4, 4), cells [[-1,0],[0,0],[1,0],[2,0],[0,1],[1,1]], priority 4",
+      "Room r1: Bathroom, pivot (8, 4), cells [[0,0],[1,0],[0,1],[1,1]], priority 3",
+      "Room r2: Corridor, pivot (4, 8), cells [[-1,0],[0,0],[1,0],[0,1],[1,1]], priority 1",
+      "Room r3: LivingRoom, pivot (8, 8), cells [[-1,0],[0,0],[1,0],[0,1],[1,1]], priority 2",
+      "[DOORS] d0,r1,r2,7,6",
+      "Задача: повернуть кухню на 90, переместить ванную на клетку вниз, добавить дверь между кухней и коридором."
+    ],
+    "output_text": "Поворачиваю кухню, сдвигаю ванную, добавляю дверь.",
+    "output": {
+      "commands": [
+        {"action": "rotate_room", "room_id": "0", "angle_quarters": 1, "reason": "изменить ориентацию"},
+        {"action": "shift_room", "room_id": "1", "dx": 0, "dy": -1, "reason": "освободить место"},
+        {"action": "add_door", "room_a": "0", "room_b": "2", "door_x": 5, "door_y": 6, "reason": "соединить кухню с коридором"}
+      ],
+      "explanation": "Кухня поворачивается, ванная сдвигается, добавляется дверь."
+    }
+  },
+  {
+    "instruction": "Преврати план в команды примитивов движка.",
+    "input_lines": [
+      "Текущая планировка (grid):",
+      "Room r0: Corridor, pivot (4, 4), cells [[-1,0],[0,0],[1,0],[0,1],[1,1]], priority 1",
+      "Room r1: LivingRoom, pivot (2, 2), cells [[-1,0],[0,0],[1,0],[0,1],[1,1]], priority 3",
+      "Room r2: Kitchen, pivot (7, 2), cells [[-1,0],[0,0],[1,0],[2,0],[0,1],[1,1]], priority 4",
+      "Room r3: Bathroom, pivot (2, 7), cells [[0,0],[1,0],[0,1],[1,1]], priority 2",
+      "[CONFLICTS] r1,r2",
+      "Задача: сдвинуть гостиную вправо, кухню влево, затем добавить дверь между кухней и ванной."
+    ],
+    "output_text": "Сдвигаю гостиную и кухню, добавляю дверь к ванной.",
+    "output": {
+      "commands": [
+        {"action": "shift_room", "room_id": "1", "dx": 1, "dy": 0, "reason": "уменьшить наложение"},
+        {"action": "shift_room", "room_id": "2", "dx": -1, "dy": 0, "reason": "уйти от гостиной"},
+        {"action": "add_door", "room_a": "2", "room_b": "3", "door_x": 5, "door_y": 3, "reason": "соединить кухню с ванной"}
+      ],
+      "explanation": "Комнаты сдвигаются и добавляется дверь."
+    }
+  },
+  {
+    "instruction": "Преврати план в команды примитивов движка.",
+    "input_lines": [
+      "Текущая планировка (grid):",
+      "Room r0: Bathroom, pivot (3, 3), cells [[0,0],[1,0],[0,1],[1,1]], priority 3",
+      "Room r1: LivingRoom, pivot (6, 3), cells [[-1,0],[0,0],[1,0],[0,1],[1,1]], priority 2",
+      "Room r2: Corridor, pivot (6, 6), cells [[0,0],[1,0],[2,0]], priority 1",
+      "Room r3: Kitchen, pivot (3, 6), cells [[-1,0],[0,0],[1,0],[2,0],[0,1],[1,1]], priority 4",
+      "[CONFLICTS] r0,r1",
+      "Задача: удалить ванную, переместить гостиную на клетку влево, добавить дверь между гостиной и кухней."
+    ],
+    "output_text": "Удаляю ванную, сдвигаю гостиную, добавляю дверь к кухне.",
+    "output": {
+      "commands": [
+        {"action": "remove_room", "room_id": "0", "reason": "удалить нефункциональную комнату"},
+        {"action": "shift_room", "room_id": "1", "dx": -1, "dy": 0, "reason": "сместить к кухне"},
+        {"action": "add_door", "room_a": "1", "room_b": "3", "door_x": 5, "door_y": 4, "reason": "соединить гостиную с кухней"}
+      ],
+      "explanation": "Ванная удаляется, гостиная сдвигается, добавляется дверь."
+    }
+  },
+  {
+    "instruction": "Преврати план в команды примитивов движка.",
+    "input_lines": [
+      "Текущая планировка (grid):",
+      "Room r0: LivingRoom, pivot (4, 4), cells [[-1,0],[0,0],[1,0],[0,1],[1,1]], priority 2",
+      "Room r1: Kitchen, pivot (7, 4), cells [[-1,0],[0,0],[1,0],[2,0],[0,1],[1,1]], priority 5",
+      "Room r2: Bathroom, pivot (4, 7), cells [[0,0],[1,0],[0,1],[1,1]], priority 3",
+      "Room r3: Corridor, pivot (7, 7), cells [[0,0],[1,0],[2,0]], priority 1",
+      "[CONFLICTS] r0,r1",
+      "[DOORS] d0,r2,r3,6,7",
+      "Задача: переместить гостиную вниз на 1, кухню вверх на 1, вызвать resolve_collisions."
+    ],
+    "output_text": "Сдвигаю гостиную вниз, кухню вверх, вызываю разрешение коллизий.",
+    "output": {
+      "commands": [
+        {"action": "shift_room", "room_id": "0", "dx": 0, "dy": -1, "reason": "освободить пространство"},
+        {"action": "shift_room", "room_id": "1", "dx": 0, "dy": 1, "reason": "устранить наложение"},
+        {"action": "resolve_collisions", "max_iterations": 4, "reason": "убрать остаточные пересечения"}
+      ],
+      "explanation": "Комнаты сдвигаются и коллизии разрешаются."
+    }
+  },
+  {
+    "instruction": "Преврати план в команды примитивов движка.",
+    "input_lines": [
+      "Текущая планировка (grid):",
+      "Room r0: Corridor, pivot (5, 5), cells [[-1,0],[0,0],[1,0],[0,1],[1,1]], priority 1",
+      "Room r1: Kitchen, pivot (2, 2), cells [[-1,0],[0,0],[1,0],[2,0],[0,1],[1,1]], priority 4",
+      "Room r2: LivingRoom, pivot (8, 2), cells [[-1,0],[0,0],[1,0],[0,1],[1,1]], priority 3",
+      "Room r3: Bathroom, pivot (5, 7), cells [[0,0],[1,0],[0,1],[1,1]], priority 2",
+      "[DOORS] d0,r1,r0,3,4",
+      "Задача: добавить новую комнату-кабинет (LivingRoom) в сетку, затем добавить дверь между кабинетом и коридором."
+    ],
+    "output_text": "Добавляю кабинет и дверь к коридору.",
+    "output": {
+      "commands": [
+        {"action": "add_grid_room", "pivot_x": 8, "pivot_y": 5, "local_cells": [-1,0,0,0,1,0,0,1,1,1], "room_type": 1, "priority": 2, "reason": "создать кабинет"},
+        {"action": "add_door", "room_a": "0", "room_b": "2", "door_x": 7, "door_y": 5, "reason": "соединить кабинет с коридором"}
+      ],
+      "explanation": "Создаю кабинет и связываю с коридором."
+    }
+  },
+  {
+    "instruction": "Преврати план в команды примитивов движка.",
+    "input_lines": [
+      "Текущая планировка (grid):",
+      "Room r0: Bathroom, pivot (3, 3), cells [[0,0],[1,0],[0,1],[1,1]], priority 3",
+      "Room r1: LivingRoom, pivot (6, 3), cells [[-1,0],[0,0],[1,0],[0,1],[1,1]], priority 2",
+      "Room r2: Kitchen, pivot (3, 6), cells [[-1,0],[0,0],[1,0],[2,0],[0,1],[1,1]], priority 4",
+      "Room r3: Corridor, pivot (6, 6), cells [[0,0],[1,0],[2,0]], priority 1",
+      "[CONFLICTS] r0,r1",
+      "Задача: повернуть ванную на 270, удалить кухню, добавить дверь гостиная-коридор."
+    ],
+    "output_text": "Поворачиваю ванную, удаляю кухню, добавляю дверь.",
+    "output": {
+      "commands": [
+        {"action": "rotate_room", "room_id": "0", "angle_quarters": 3, "reason": "изменить ориентацию"},
+        {"action": "remove_room", "room_id": "2", "reason": "удалить кухню"},
+        {"action": "add_door", "room_a": "1", "room_b": "3", "door_x": 6, "door_y": 4, "reason": "соединить гостиную с коридором"}
+      ],
+      "explanation": "Ванная поворачивается, кухня удаляется, добавляется дверь."
+    }
+  },
+  {
+    "instruction": "Преврати план в команды примитивов движка.",
+    "input_lines": [
+      "Текущая планировка (grid):",
+      "Room r0: LivingRoom, pivot (4, 4), cells [[-1,0],[0,0],[1,0],[0,1],[1,1]], priority 2",
+      "Room r1: Kitchen, pivot (7, 4), cells [[-1,0],[0,0],[1,0],[2,0],[0,1],[1,1]], priority 5",
+      "Room r2: Corridor, pivot (7, 7), cells [[0,0],[1,0],[2,0]], priority 1",
+      "Room r3: Bathroom, pivot (4, 7), cells [[0,0],[1,0],[0,1],[1,1]], priority 3",
+      "[CONFLICTS] r0,r1",
+      "Задача: переместить кухню на клетку вправо, добавить дверь кухня-ванная, разрешить коллизии."
+    ],
+    "output_text": "Сдвигаю кухню, добавляю дверь, разрешаю коллизии.",
+    "output": {
+      "commands": [
+        {"action": "shift_room", "room_id": "1", "dx": 1, "dy": 0, "reason": "освободить место"},
+        {"action": "add_door", "room_a": "1", "room_b": "3", "door_x": 6, "door_y": 5, "reason": "соединить кухню с ванной"},
+        {"action": "resolve_collisions", "max_iterations": 5, "reason": "устранить пересечения"}
+      ],
+      "explanation": "Кухня сдвигается, добавляется дверь, коллизии разрешаются."
+    }
+  },
+  {
+    "instruction": "Преврати план в команды примитивов движка.",
+    "input_lines": [
+      "Текущая планировка (grid):",
+      "Room r0: Kitchen, pivot (3, 3), cells [[-1,0],[0,0],[1,0],[2,0],[0,1],[1,1]], priority 4",
+      "Room r1: Bathroom, pivot (6, 3), cells [[0,0],[1,0],[0,1],[1,1]], priority 3",
+      "Room r2: LivingRoom, pivot (3, 6), cells [[-1,0],[0,0],[1,0],[0,1],[1,1]], priority 2",
+      "Room r3: Corridor, pivot (6, 6), cells [[0,0],[1,0],[2,0]], priority 1",
+      "[CONFLICTS] r0,r1",
+      "Задача: удалить кухню, сдвинуть ванную влево на 1, добавить дверь ванная-коридор."
+    ],
+    "output_text": "Удаляю кухню, сдвигаю ванную, добавляю дверь.",
+    "output": {
+      "commands": [
+        {"action": "remove_room", "room_id": "0", "reason": "удалить кухню"},
+        {"action": "shift_room", "room_id": "1", "dx": -1, "dy": 0, "reason": "сместить к коридору"},
+        {"action": "add_door", "room_a": "1", "room_b": "3", "door_x": 6, "door_y": 4, "reason": "соединить ванную с коридором"}
+      ],
+      "explanation": "Кухня удаляется, ванная сдвигается, добавляется дверь."
+    }
+  },
+  {
+    "instruction": "Преврати план в команды примитивов движка.",
+    "input_lines": [
+      "Текущая планировка (grid):",
+      "Room r0: Corridor, pivot (4, 4), cells [[-1,0],[0,0],[1,0],[0,1],[1,1]], priority 1",
+      "Room r1: LivingRoom, pivot (2, 2), cells [[-1,0],[0,0],[1,0],[0,1],[1,1]], priority 3",
+      "Room r2: Kitchen, pivot (7, 2), cells [[-1,0],[0,0],[1,0],[2,0],[0,1],[1,1]], priority 4",
+      "Room r3: Bathroom, pivot (2, 7), cells [[0,0],[1,0],[0,1],[1,1]], priority 2",
+      "[CONFLICTS] r1,r2",
+      "Задача: сдвинуть гостиную на 1 вниз, кухню на 1 вверх, добавить дверь между ними."
+    ],
+    "output_text": "Сдвигаю гостиную и кухню, добавляю дверь.",
+    "output": {
+      "commands": [
+        {"action": "shift_room", "room_id": "1", "dx": 0, "dy": -1, "reason": "уменьшить конфликт"},
+        {"action": "shift_room", "room_id": "2", "dx": 0, "dy": 1, "reason": "уйти от гостиной"},
+        {"action": "add_door", "room_a": "1", "room_b": "2", "door_x": 5, "door_y": 3, "reason": "соединить комнаты"}
+      ],
+      "explanation": "Комнаты сдвигаются и между ними добавляется дверь."
+    }
+  },
+  {
+    "instruction": "Преврати план в команды примитивов движка.",
+    "input_lines": [
+      "Текущая планировка (grid):",
+      "Room r0: Bathroom, pivot (3, 3), cells [[0,0],[1,0],[0,1],[1,1]], priority 3",
+      "Room r1: LivingRoom, pivot (6, 3), cells [[-1,0],[0,0],[1,0],[0,1],[1,1]], priority 2",
+      "Room r2: Corridor, pivot (6, 6), cells [[0,0],[1,0],[2,0]], priority 1",
+      "Room r3: Kitchen, pivot (3, 6), cells [[-1,0],[0,0],[1,0],[2,0],[0,1],[1,1]], priority 4",
+      "[CONFLICTS] r0,r1",
+      "Задача: повернуть ванную на 180, удалить гостиную, добавить дверь ванная-кухня."
+    ],
+    "output_text": "Поворачиваю ванную, удаляю гостиную, добавляю дверь.",
+    "output": {
+      "commands": [
+        {"action": "rotate_room", "room_id": "0", "angle_quarters": 2, "reason": "изменить форму"},
+        {"action": "remove_room", "room_id": "1", "reason": "удалить гостиную"},
+        {"action": "add_door", "room_a": "0", "room_b": "3", "door_x": 4, "door_y": 5, "reason": "соединить ванную с кухней"}
+      ],
+      "explanation": "Ванная поворачивается, гостиная удаляется, добавляется дверь."
+    }
+  },
+  {
+    "instruction": "Преврати план в команды примитивов движка.",
+    "input_lines": [
+      "Текущая планировка (grid):",
+      "Room r0: LivingRoom, pivot (4, 4), cells [[-1,0],[0,0],[1,0],[0,1],[1,1]], priority 2",
+      "Room r1: Kitchen, pivot (7, 4), cells [[-1,0],[0,0],[1,0],[2,0],[0,1],[1,1]], priority 5",
+      "Room r2: Bathroom, pivot (4, 7), cells [[0,0],[1,0],[0,1],[1,1]], priority 3",
+      "Room r3: Corridor, pivot (7, 7), cells [[0,0],[1,0],[2,0]], priority 1",
+      "[CONFLICTS] r0,r1",
+      "Задача: сдвинуть гостиную вправо на 2, сдвинуть кухню вверх на 1, затем добавить дверь кухня-коридор."
+    ],
+    "output_text": "Сдвигаю гостиную, кухню, добавляю дверь.",
+    "output": {
+      "commands": [
+        {"action": "shift_room", "room_id": "0", "dx": 2, "dy": 0, "reason": "освободить место"},
+        {"action": "shift_room", "room_id": "1", "dx": 0, "dy": 1, "reason": "устранить наложение"},
+        {"action": "add_door", "room_a": "1", "room_b": "3", "door_x": 8, "door_y": 6, "reason": "соединить кухню с коридором"}
+      ],
+      "explanation": "Гостиная и кухня сдвигаются, добавляется дверь."
+    }
+  },
+  {
+    "instruction": "Преврати план в команды примитивов движка.",
+    "input_lines": [
+      "Текущая планировка (grid):",
+      "Room r0: Corridor, pivot (5, 5), cells [[-1,0],[0,0],[1,0],[0,1],[1,1]], priority 1",
+      "Room r1: Kitchen, pivot (2, 2), cells [[-1,0],[0,0],[1,0],[2,0],[0,1],[1,1]], priority 4",
+      "Room r2: LivingRoom, pivot (8, 2), cells [[-1,0],[0,0],[1,0],[0,1],[1,1]], priority 3",
+      "Room r3: Bathroom, pivot (2, 7), cells [[0,0],[1,0],[0,1],[1,1]], priority 2",
+      "[DOORS] d0,r1,r0,3,4",
+      "Задача: добавить новую комнату-кладовую (Corridor type=4) в сетку, затем добавить дверь между кладовой и коридором."
+    ],
+    "output_text": "Добавляю кладовую и дверь к коридору.",
+    "output": {
+      "commands": [
+        {"action": "add_grid_room", "pivot_x": 5, "pivot_y": 7, "local_cells": [0,0,1,0,0,1,1,1], "room_type": 4, "priority": 1, "reason": "создать кладовую"},
+        {"action": "add_door", "room_a": "0", "room_b": "2", "door_x": 5, "door_y": 6, "reason": "соединить кладовую с коридором"}
+      ],
+      "explanation": "Создаю кладовую и добавляю дверь."
+    }
+  },
+  {
+    "instruction": "Преврати план в команды примитивов движка.",
+    "input_lines": [
+      "Текущая планировка (grid):",
+      "Room r0: Bathroom, pivot (4, 4), cells [[0,0],[1,0],[0,1],[1,1]], priority 3",
+      "Room r1: LivingRoom, pivot (7, 4), cells [[-1,0],[0,0],[1,0],[0,1],[1,1]], priority 2",
+      "Room r2: Corridor, pivot (7, 7), cells [[0,0],[1,0],[2,0]], priority 1",
+      "Room r3: Kitchen, pivot (2, 7), cells [[-1,0],[0,0],[1,0],[2,0],[0,1],[1,1]], priority 4",
+      "[CONFLICTS] r0,r1",
+      "Задача: переместить ванную вниз на 2, повернуть гостиную на 90, вызвать resolve_collisions."
+    ],
+    "output_text": "Перемещаю ванную, поворачиваю гостиную, запускаю разрешение коллизий.",
+    "output": {
+      "commands": [
+        {"action": "shift_room", "room_id": "0", "dx": 0, "dy": -2, "reason": "устранить конфликт"},
+        {"action": "rotate_room", "room_id": "1", "angle_quarters": 1, "reason": "изменить ориентацию"},
+        {"action": "resolve_collisions", "max_iterations": 4, "reason": "убрать пересечения"}
+      ],
+      "explanation": "Ванная перемещается, гостиная поворачивается, коллизии разрешаются."
+    }
+  },
+  {
+    "instruction": "Преврати план в команды примитивов движка.",
+    "input_lines": [
+      "Текущая планировка (grid):",
+      "Room r0: Kitchen, pivot (3, 3), cells [[-1,0],[0,0],[1,0],[2,0],[0,1],[1,1]], priority 4",
+      "Room r1: Bathroom, pivot (6, 3), cells [[0,0],[1,0],[0,1],[1,1]], priority 3",
+      "Room r2: LivingRoom, pivot (3, 6), cells [[-1,0],[0,0],[1,0],[0,1],[1,1]], priority 2",
+      "Room r3: Corridor, pivot (6, 6), cells [[0,0],[1,0],[2,0]], priority 1",
+      "[CONFLICTS] r0,r1",
+      "Задача: удалить ванную, переместить кухню на 1 вправо, добавить дверь кухня-коридор."
+    ],
+    "output_text": "Удаляю ванную, сдвигаю кухню, добавляю дверь.",
+    "output": {
+      "commands": [
+        {"action": "remove_room", "room_id": "1", "reason": "удалить ванную"},
+        {"action": "shift_room", "room_id": "0", "dx": 1, "dy": 0, "reason": "сместить кухню"},
+        {"action": "add_door", "room_a": "0", "room_b": "3", "door_x": 7, "door_y": 4, "reason": "соединить кухню с коридором"}
+      ],
+      "explanation": "Ванная удаляется, кухня сдвигается, добавляется дверь."
+    }
+  },
+  {
+    "instruction": "Преврати план в команды примитивов движка.",
+    "input_lines": [
+      "Текущая планировка (grid):",
+      "Room r0: LivingRoom, pivot (4, 4), cells [[-1,0],[0,0],[1,0],[0,1],[1,1]], priority 2",
+      "Room r1: Kitchen, pivot (7, 4), cells [[-1,0],[0,0],[1,0],[2,0],[0,1],[1,1]], priority 5",
+      "Room r2: Bathroom, pivot (4, 7), cells [[0,0],[1,0],[0,1],[1,1]], priority 3",
+      "Room r3: Corridor, pivot (7, 7), cells [[0,0],[1,0],[2,0]], priority 1",
+      "[CONFLICTS] r0,r1",
+      "Задача: сдвинуть гостиную на 1 влево, повернуть кухню на 90, добавить дверь гостиная-ванная."
+    ],
+    "output_text": "Сдвигаю гостиную, поворачиваю кухню, добавляю дверь.",
+    "output": {
+      "commands": [
+        {"action": "shift_room", "room_id": "0", "dx": -1, "dy": 0, "reason": "освободить место"},
+        {"action": "rotate_room", "room_id": "1", "angle_quarters": 1, "reason": "изменить форму"},
+        {"action": "add_door", "room_a": "0", "room_b": "2", "door_x": 4, "door_y": 6, "reason": "соединить гостиную с ванной"}
+      ],
+      "explanation": "Гостиная сдвигается, кухня поворачивается, добавляется дверь."
+    }
+  },
+  {
+    "instruction": "Преврати план в команды примитивов движка.",
+    "input_lines": [
+      "Текущая планировка (grid):",
+      "Room r0: Corridor, pivot (5, 5), cells [[-1,0],[0,0],[1,0],[0,1],[1,1]], priority 1",
+      "Room r1: LivingRoom, pivot (2, 2), cells [[-1,0],[0,0],[1,0],[0,1],[1,1]], priority 3",
+      "Room r2: Kitchen, pivot (8, 2), cells [[-1,0],[0,0],[1,0],[2,0],[0,1],[1,1]], priority 4",
+      "Room r3: Bathroom, pivot (2, 7), cells [[0,0],[1,0],[0,1],[1,1]], priority 2",
+      "[DOORS] d0,r1,r0,3,4",
+      "Задача: удалить гостиную, сдвинуть кухню влево на 1, добавить дверь кухня-ванная."
+    ],
+    "output_text": "Удаляю гостиную, сдвигаю кухню, добавляю дверь.",
+    "output": {
+      "commands": [
+        {"action": "remove_room", "room_id": "1", "reason": "удалить гостиную"},
+        {"action": "shift_room", "room_id": "2", "dx": -1, "dy": 0, "reason": "сместить кухню"},
+        {"action": "add_door", "room_a": "2", "room_b": "3", "door_x": 5, "door_y": 3, "reason": "соединить кухню с ванной"}
+      ],
+      "explanation": "Гостиная удаляется, кухня сдвигается, добавляется дверь."
+    }
+  },
+  {
+    "instruction": "Преврати план в команды примитивов движка.",
+    "input_lines": [
+      "Текущая планировка (grid):",
+      "Room r0: Bathroom, pivot (3, 3), cells [[0,0],[1,0],[0,1],[1,1]], priority 3",
+      "Room r1: LivingRoom, pivot (6, 3), cells [[-1,0],[0,0],[1,0],[0,1],[1,1]], priority 2",
+      "Room r2: Corridor, pivot (6, 6), cells [[0,0],[1,0],[2,0]], priority 1",
+      "Room r3: Kitchen, pivot (3, 6), cells [[-1,0],[0,0],[1,0],[2,0],[0,1],[1,1]], priority 4",
+      "[CONFLICTS] r0,r1",
+      "Задача: повернуть ванную на 270, сдвинуть гостиную на 1 вниз, добавить дверь ванная-кухня."
+    ],
+    "output_text": "Поворачиваю ванную, сдвигаю гостиную, добавляю дверь.",
+    "output": {
+      "commands": [
+        {"action": "rotate_room", "room_id": "0", "angle_quarters": 3, "reason": "изменить ориентацию"},
+        {"action": "shift_room", "room_id": "1", "dx": 0, "dy": -1, "reason": "освободить место"},
+        {"action": "add_door", "room_a": "0", "room_b": "3", "door_x": 4, "door_y": 5, "reason": "соединить ванную с кухней"}
+      ],
+      "explanation": "Ванная поворачивается, гостиная сдвигается, добавляется дверь."
+    }
+  },
+  {
+    "instruction": "Преврати план в команды примитивов движка.",
+    "input_lines": [
+      "Текущая планировка (grid):",
+      "Room r0: Kitchen, pivot (4, 4), cells [[-1,0],[0,0],[1,0],[2,0],[0,1],[1,1]], priority 4",
+      "Room r1: Bathroom, pivot (8, 4), cells [[0,0],[1,0],[0,1],[1,1]], priority 3",
+      "Room r2: Corridor, pivot (4, 8), cells [[-1,0],[0,0],[1,0],[0,1],[1,1]], priority 1",
+      "Room r3: LivingRoom, pivot (8, 8), cells [[-1,0],[0,0],[1,0],[0,1],[1,1]], priority 2",
+      "[CONFLICTS] r0,r1",
+      "Задача: удалить кухню, сдвинуть ванную влево на 2, добавить дверь ванная-коридор."
+    ],
+    "output_text": "Удаляю кухню, сдвигаю ванную, добавляю дверь.",
+    "output": {
+      "commands": [
+        {"action": "remove_room", "room_id": "0", "reason": "удалить кухню"},
+        {"action": "shift_room", "room_id": "1", "dx": -2, "dy": 0, "reason": "сместить к коридору"},
+        {"action": "add_door", "room_a": "1", "room_b": "2", "door_x": 7, "door_y": 5, "reason": "соединить ванную с коридором"}
+      ],
+      "explanation": "Кухня удаляется, ванная сдвигается, добавляется дверь."
+    }
+  },
+  {
+    "instruction": "Преврати план в команды примитивов движка.",
+    "input_lines": [
+      "Текущая планировка (grid):",
+      "Room r0: LivingRoom, pivot (4, 4), cells [[-1,0],[0,0],[1,0],[0,1],[1,1]], priority 2",
+      "Room r1: Kitchen, pivot (7, 4), cells [[-1,0],[0,0],[1,0],[2,0],[0,1],[1,1]], priority 5",
+      "Room r2: Bathroom, pivot (4, 7), cells [[0,0],[1,0],[0,1],[1,1]], priority 3",
+      "Room r3: Corridor, pivot (7, 7), cells [[0,0],[1,0],[2,0]], priority 1",
+      "[CONFLICTS] r0,r1",
+      "Задача: переместить гостиную вверх на 1, кухню вниз на 1, добавить дверь кухня-ванная."
+    ],
+    "output_text": "Сдвигаю гостиную и кухню, добавляю дверь.",
+    "output": {
+      "commands": [
+        {"action": "shift_room", "room_id": "0", "dx": 0, "dy": 1, "reason": "уйти от кухни"},
+        {"action": "shift_room", "room_id": "1", "dx": 0, "dy": -1, "reason": "уйти от гостиной"},
+        {"action": "add_door", "room_a": "1", "room_b": "2", "door_x": 6, "door_y": 6, "reason": "соединить кухню с ванной"}
+      ],
+      "explanation": "Комнаты сдвигаются, добавляется дверь."
+    }
+  },
+  {
+    "instruction": "Преврати план в команды примитивов движка.",
+    "input_lines": [
+      "Текущая планировка (grid):",
+      "Room r0: Corridor, pivot (5, 5), cells [[-1,0],[0,0],[1,0],[0,1],[1,1]], priority 1",
+      "Room r1: Kitchen, pivot (2, 2), cells [[-1,0],[0,0],[1,0],[2,0],[0,1],[1,1]], priority 4",
+      "Room r2: LivingRoom, pivot (8, 2), cells [[-1,0],[0,0],[1,0],[0,1],[1,1]], priority 3",
+      "Room r3: Bathroom, pivot (2, 7), cells [[0,0],[1,0],[0,1],[1,1]], priority 2",
+      "[DOORS] d0,r1,r0,3,4",
+      "Задача: добавить новую комнату-кабинет (LivingRoom) в сетку, сдвинуть кухню вниз на 1, добавить дверь кабинет-коридор."
+    ],
+    "output_text": "Добавляю кабинет, сдвигаю кухню, добавляю дверь.",
+    "output": {
+      "commands": [
+        {"action": "add_grid_room", "pivot_x": 5, "pivot_y": 7, "local_cells": [-1,0,0,0,1,0,0,1,1,1], "room_type": 1, "priority": 2, "reason": "создать кабинет"},
+        {"action": "shift_room", "room_id": "1", "dx": 0, "dy": -1, "reason": "освободить место"},
+        {"action": "add_door", "room_a": "0", "room_b": "2", "door_x": 5, "door_y": 6, "reason": "соединить кабинет с коридором"}
+      ],
+      "explanation": "Кабинет создается, кухня сдвигается, добавляется дверь."
+    }
+  }
+]

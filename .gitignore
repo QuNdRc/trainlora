@@ -1,0 +1,36 @@
+# Dependencies
+__pycache__/
+*.pyc
+*.egg-info/
+*.egg
+
+# IDEs
+.idea/
+*.suo
+*.user
+*.vs/
+Debug/
+Release/
+x64/
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Python virtual environments
+venv/
+.venv/
+env/
+
+# Model files (large, use separate storage)
+*.gguf
+*.safetensors
+!adapter_model.safetensors
+*.bin
+
+# Training output
+lora_output/
+train_log.txt
+
+# Temporary / debug
+*.tmp

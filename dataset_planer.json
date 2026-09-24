@@ -1,0 +1,1124 @@
+[
+  {
+    "instruction": "Спроектируй 1-комнатную квартиру 42 м² для молодой пары. Требования: отдельная спальня, гостиная, кухня с обеденной зоной.",
+    "input_lines": [],
+    "output_text": "Объект: однокомнатная квартира 42 м², перепланировка с выделением спальни. Гостиная объединена с кухней. Спальня изолирована. Мокрые зоны у входа.",
+    "output": {
+      "object_type": "apartment",
+      "area": 42,
+      "rooms": 1,
+      "occupants": 2,
+      "zones": [
+        {"type": "living_kitchen", "area": 18},
+        {"type": "bedroom", "area": 11},
+        {"type": "bathroom", "area": 4},
+        {"type": "hall", "area": 5}
+      ],
+      "wet_areas_grouped": true,
+      "insolation": "bedroom",
+      "notes": "спальня выделена перегородкой"
+    }
+  },
+  {
+    "instruction": "Спроектируй 3-комнатную квартиру 78 м² для семьи из 4 человек (родители + двое детей). Требования: две детские, мастер-спальня, два санузла, постирочная.",
+    "input_lines": [],
+    "output_text": "Объект: трёхкомнатная квартира 78 м². Решение: мастер-спальня с отдельным санузлом, две детские рядом. Кухня-гостиная в центре. Постирочная у входа. Два санузла сгруппированы с мокрыми зонами.",
+    "output": {
+      "object_type": "apartment",
+      "area": 78,
+      "rooms": 3,
+      "occupants": 4,
+      "zones": [
+        {"type": "living_kitchen", "area": 28},
+        {"type": "master_bedroom", "area": 16},
+        {"type": "kids_room_1", "area": 12},
+        {"type": "kids_room_2", "area": 12},
+        {"type": "bathroom_1", "area": 5},
+        {"type": "bathroom_2", "area": 4},
+        {"type": "laundry", "area": 3},
+        {"type": "hall", "area": 12}
+      ],
+      "wet_areas_grouped": true,
+      "insolation": "bedrooms",
+      "notes": "мастер-спальня с санузлом"
+    }
+  },
+  {
+    "instruction": "Спроектируй студию 35 м² для студента. Требования: спальное место, рабочая зона, мини-кухня, санузел, много мест хранения.",
+    "input_lines": [],
+    "output_text": "Объект: студия 35 м² для студента. Решение: кровать-чердак или выдвижная кровать, рабочая зона у окна, мини-кухня вдоль стены, санузел компактный. Встроенные шкафы по всей высоте.",
+    "output": {
+      "object_type": "studio",
+      "area": 35,
+      "rooms": 1,
+      "occupants": 1,
+      "zones": [
+        {"type": "living_sleep", "area": 20},
+        {"type": "kitchen", "area": 3},
+        {"type": "bathroom", "area": 3},
+        {"type": "storage", "area": 4}
+      ],
+      "wet_areas_grouped": true,
+      "insolation": "main_room",
+      "notes": "максимум хранения, трансформируемая мебель"
+    }
+  },
+  {
+    "instruction": "Спроектируй 4-комнатную квартиру 95 м² для семьи из 5 человек (трое детей). Требования: мастер-спальня, две детские, кабинет, два санузла, гардеробная.",
+    "input_lines": [],
+    "output_text": "Объект: четырёхкомнатная квартира 95 м². Решение: мастер-блок с гардеробной и санузлом, две детские, кабинет. Кухня-гостиная просторная. Дополнительный санузел у входа. Мокрые зоны сгруппированы.",
+    "output": {
+      "object_type": "apartment",
+      "area": 95,
+      "rooms": 4,
+      "occupants": 5,
+      "zones": [
+        {"type": "living_kitchen", "area": 30},
+        {"type": "master_bedroom", "area": 18},
+        {"type": "kids_room_1", "area": 13},
+        {"type": "kids_room_2", "area": 13},
+        {"type": "office", "area": 9},
+        {"type": "bathroom_1", "area": 6},
+        {"type": "bathroom_2", "area": 4},
+        {"type": "wardrobe", "area": 5},
+        {"type": "hall", "area": 12}
+      ],
+      "wet_areas_grouped": true,
+      "insolation": "bedrooms_office",
+      "notes": "мастер-блок с гардеробной"
+    }
+  },
+  {
+    "instruction": "Спроектируй двухуровневый пентхаус 120 м² для пары без детей. Требования: на первом уровне гостиная, кухня, гостевая спальня; на втором — мастер-спальня с ванной и гардеробной.",
+    "input_lines": [],
+    "output_text": "Объект: двухуровневый пентхаус 120 м². Первый уровень: общественная зона (гостиная, кухня, гостевая спальня, санузел). Второй уровень: приватный блок (мастер-спальня, ванная, гардеробная). Мокрые зоны на каждом уровне.",
+    "output": {
+      "object_type": "penthouse",
+      "area": 120,
+      "rooms": 3,
+      "occupants": 2,
+      "levels": 2,
+      "zones": [
+        {"level": 1, "type": "living", "area": 30},
+        {"level": 1, "type": "kitchen", "area": 12},
+        {"level": 1, "type": "guest_bedroom", "area": 14},
+        {"level": 1, "type": "bathroom", "area": 5},
+        {"level": 2, "type": "master_bedroom", "area": 22},
+        {"level": 2, "type": "bathroom", "area": 8},
+        {"level": 2, "type": "wardrobe", "area": 6}
+      ],
+      "wet_areas_grouped": true,
+      "insolation": "bedrooms_living",
+      "notes": "приватный блок на втором уровне"
+    }
+  },
+  {
+    "instruction": "Спроектируй 2-комнатную квартиру 55 м² с двумя санузлами для семьи с ребёнком. Требования: гостевой санузел и ванная при спальне.",
+    "input_lines": [],
+    "output_text": "Объект: двухкомнатная квартира 55 м² с двумя санузлами. Решение: при спальне организована ванная комната, у входа — гостевой санузел. Кухня-гостиная. Мокрые зоны сгруппированы.",
+    "output": {
+      "object_type": "apartment",
+      "area": 55,
+      "rooms": 2,
+      "occupants": 3,
+      "zones": [
+        {"type": "living_kitchen", "area": 22},
+        {"type": "bedroom", "area": 14},
+        {"type": "bathroom_master", "area": 5},
+        {"type": "bathroom_guest", "area": 3},
+        {"type": "hall", "area": 6}
+      ],
+      "wet_areas_grouped": true,
+      "insolation": "bedroom_living",
+      "notes": "гостевой санузел у входа"
+    }
+  },
+  {
+    "instruction": "Спроектируй 3-комнатную квартиру 80 м² с кабинетом и гардеробной для семьи из 3 человек.",
+    "input_lines": [],
+    "output_text": "Объект: трёхкомнатная квартира 80 м². Решение: кухня-гостиная, спальня, детская, кабинет, гардеробная при спальне. Санузел один, увеличенный. Мокрые зоны у входа.",
+    "output": {
+      "object_type": "apartment",
+      "area": 80,
+      "rooms": 3,
+      "occupants": 3,
+      "zones": [
+        {"type": "living_kitchen", "area": 28},
+        {"type": "bedroom", "area": 16},
+        {"type": "kids_room", "area": 12},
+        {"type": "office", "area": 9},
+        {"type": "bathroom", "area": 6},
+        {"type": "wardrobe", "area": 4},
+        {"type": "hall", "area": 10}
+      ],
+      "wet_areas_grouped": true,
+      "insolation": "bedrooms_office",
+      "notes": "гардеробная при спальне"
+    }
+  },
+  {
+    "instruction": "Спроектируй 1-комнатную квартиру 38 м² с отдельной кухней и лоджией для одного человека.",
+    "input_lines": [],
+    "output_text": "Объект: однокомнатная квартира 38 м² с отдельной кухней. Жилая комната изолирована, кухня отдельная, лоджия присоединена к комнате. Санузел у входа.",
+    "output": {
+      "object_type": "apartment",
+      "area": 38,
+      "rooms": 1,
+      "occupants": 1,
+      "zones": [
+        {"type": "living", "area": 16},
+        {"type": "kitchen", "area": 7},
+        {"type": "bathroom", "area": 3},
+        {"type": "hall", "area": 4},
+        {"type": "loggia", "area": 3}
+      ],
+      "wet_areas_grouped": true,
+      "insolation": "living",
+      "notes": "лоджия присоединена"
+    }
+  },
+  {
+    "instruction": "Спроектируй таунхаус 140 м² для семьи из 4 человек. Требования: три спальни, гараж, гостиная, кухня-столовая, три санузла.",
+    "input_lines": [],
+    "output_text": "Объект: таунхаус 140 м², три уровня. Первый уровень: гараж, холл, гостевой санузел. Второй: гостиная, кухня-столовая. Третий: три спальни, два санузла, постирочная. Мокрые зоны на каждом уровне.",
+    "output": {
+      "object_type": "townhouse",
+      "area": 140,
+      "rooms": 3,
+      "occupants": 4,
+      "levels": 3,
+      "zones": [
+        {"level": 1, "type": "garage", "area": 18},
+        {"level": 1, "type": "hall", "area": 8},
+        {"level": 1, "type": "bathroom_guest", "area": 3},
+        {"level": 2, "type": "living", "area": 30},
+        {"level": 2, "type": "kitchen_dining", "area": 20},
+        {"level": 3, "type": "bedroom_1", "area": 16},
+        {"level": 3, "type": "bedroom_2", "area": 14},
+        {"level": 3, "type": "bedroom_3", "area": 12},
+        {"level": 3, "type": "bathroom_1", "area": 6},
+        {"level": 3, "type": "bathroom_2", "area": 4},
+        {"level": 3, "type": "laundry", "area": 3}
+      ],
+      "wet_areas_grouped": true,
+      "insolation": "bedrooms_living",
+      "notes": "гараж на первом уровне"
+    }
+  },
+  {
+    "instruction": "Спроектируй 2-комнатную квартиру 50 м² для пожилой пары. Требования: спальня, гостиная, кухня, санузел с душевой, безбарьерная среда.",
+    "input_lines": [],
+    "output_text": "Объект: двухкомнатная квартира 50 м² для пожилой пары. Решение: спальня изолирована, гостиная совмещена с кухней, санузел увеличен с душевой без поддона. Коридоры широкие, безбарьерная среда.",
+    "output": {
+      "object_type": "apartment",
+      "area": 50,
+      "rooms": 2,
+      "occupants": 2,
+      "zones": [
+        {"type": "living_kitchen", "area": 20},
+        {"type": "bedroom", "area": 13},
+        {"type": "bathroom", "area": 5},
+        {"type": "hall", "area": 7}
+      ],
+      "wet_areas_grouped": true,
+      "insolation": "bedroom_living",
+      "notes": "безбарьерная среда, душевая без поддона"
+    }
+  },
+  {
+    "instruction": "Спроектируй 3-комнатную квартиру 72 м² для семьи с двумя детьми разного пола. Требования: раздельные детские, мастер-спальня, два санузла.",
+    "input_lines": [],
+    "output_text": "Объект: трёхкомнатная квартира 72 м². Решение: мастер-спальня, две детские раздельные, кухня-гостиная. Санузел мастер-спальни и общий санузел. Мокрые зоны сгруппированы.",
+    "output": {
+      "object_type": "apartment",
+      "area": 72,
+      "rooms": 3,
+      "occupants": 4,
+      "zones": [
+        {"type": "living_kitchen", "area": 25},
+        {"type": "master_bedroom", "area": 15},
+        {"type": "kids_room_1", "area": 11},
+        {"type": "kids_room_2", "area": 11},
+        {"type": "bathroom_master", "area": 5},
+        {"type": "bathroom_common", "area": 4},
+        {"type": "hall", "area": 8}
+      ],
+      "wet_areas_grouped": true,
+      "insolation": "bedrooms",
+      "notes": "раздельные детские"
+    }
+  },
+  {
+    "instruction": "Спроектируй квартиру с тремя мокрыми зонами для семьи из 5 человек, площадь 88 м², 4 комнаты.",
+    "input_lines": [],
+    "output_text": "Объект: четырёхкомнатная квартира 88 м². Решение: три санузла (гостевой, общий, мастер-ванная). Мастер-спальня с ванной, две детские, кабинет. Мокрые зоны распределены.",
+    "output": {
+      "object_type": "apartment",
+      "area": 88,
+      "rooms": 4,
+      "occupants": 5,
+      "zones": [
+        {"type": "living_kitchen", "area": 26},
+        {"type": "master_bedroom", "area": 17},
+        {"type": "kids_room_1", "area": 12},
+        {"type": "kids_room_2", "area": 12},
+        {"type": "office", "area": 8},
+        {"type": "bathroom_guest", "area": 3},
+        {"type": "bathroom_common", "area": 5},
+        {"type": "bathroom_master", "area": 6},
+        {"type": "hall", "area": 10}
+      ],
+      "wet_areas_grouped": true,
+      "insolation": "bedrooms_office",
+      "notes": "три мокрые зоны"
+    }
+  },
+  {
+    "instruction": "Спроектируй 1-комнатную квартиру 45 м² с возможностью трансформации в 2-комнатную. Требования: спальня, гостиная, кухня, санузел.",
+    "input_lines": [],
+    "output_text": "Объект: однокомнатная квартира 45 м² с потенциалом перепланировки. Решение: на текущий момент спальня выделена легкими перегородками, кухня-гостиная. В будущем можно установить стационарную перегородку.",
+    "output": {
+      "object_type": "apartment",
+      "area": 45,
+      "rooms": 1,
+      "occupants": 2,
+      "zones": [
+        {"type": "living_kitchen", "area": 20},
+        {"type": "bedroom", "area": 12},
+        {"type": "bathroom", "area": 4},
+        {"type": "hall", "area": 5}
+      ],
+      "wet_areas_grouped": true,
+      "insolation": "bedroom_living",
+      "notes": "трансформируемая перегородка"
+    }
+  },
+  {
+    "instruction": "Спроектируй 2-комнатную квартиру 62 м² с большой гардеробной и постирочной для семьи из 2 человек.",
+    "input_lines": [],
+    "output_text": "Объект: двухкомнатная квартира 62 м². Решение: спальня с большой гардеробной, гостевая/кабинет, кухня-гостиная. Постирочная у входа. Санузел увеличен.",
+    "output": {
+      "object_type": "apartment",
+      "area": 62,
+      "rooms": 2,
+      "occupants": 2,
+      "zones": [
+        {"type": "living_kitchen", "area": 24},
+        {"type": "bedroom", "area": 15},
+        {"type": "guest_or_office", "area": 10},
+        {"type": "bathroom", "area": 6},
+        {"type": "wardrobe", "area": 6},
+        {"type": "laundry", "area": 3},
+        {"type": "hall", "area": 8}
+      ],
+      "wet_areas_grouped": true,
+      "insolation": "bedroom_living",
+      "notes": "большая гардеробная"
+    }
+  },
+  {
+    "instruction": "Спроектируй квартиру для инвестора под аренду, площадь 48 м², 2 комнаты. Требования: две изолированные комнаты, минимум мокрых зон, дешёвая отделка.",
+    "input_lines": [],
+    "output_text": "Объект: двухкомнатная квартира 48 м² под аренду. Решение: две изолированные комнаты (спальня и гостиная), кухня-ниша, совмещённый санузел. Минимум перегородок, простые решения.",
+    "output": {
+      "object_type": "apartment",
+      "area": 48,
+      "rooms": 2,
+      "occupants": 2,
+      "zones": [
+        {"type": "living", "area": 18},
+        {"type": "bedroom", "area": 12},
+        {"type": "kitchen_niche", "area": 4},
+        {"type": "bathroom", "area": 4},
+        {"type": "hall", "area": 6}
+      ],
+      "wet_areas_grouped": true,
+      "insolation": "living_bedroom",
+      "notes": "под сдачу в аренду, минимум затрат"
+    }
+  },
+  {
+    "instruction": "Спроектируй 3-комнатную квартиру 68 м² с раздельными санузлами и гардеробной для семьи из 3 человек.",
+    "input_lines": [],
+    "output_text": "Объект: трёхкомнатная квартира 68 м². Решение: мастер-спальня с гардеробной и санузлом, детская, кухня-гостиная. Гостевой санузел у входа.",
+    "output": {
+      "object_type": "apartment",
+      "area": 68,
+      "rooms": 3,
+      "occupants": 3,
+      "zones": [
+        {"type": "living_kitchen", "area": 24},
+        {"type": "master_bedroom", "area": 16},
+        {"type": "kids_room", "area": 12},
+        {"type": "bathroom_master", "area": 5},
+        {"type": "bathroom_guest", "area": 3},
+        {"type": "wardrobe", "area": 5},
+        {"type": "hall", "area": 8}
+      ],
+      "wet_areas_grouped": true,
+      "insolation": "bedrooms",
+      "notes": "раздельные санузлы"
+    }
+  },
+  {
+    "instruction": "Спроектируй квартиру с кабинетом и библиотекой, площадь 75 м², 3 комнаты, для одного человека.",
+    "input_lines": [],
+    "output_text": "Объект: трёхкомнатная квартира 75 м² для одного человека с кабинетом и библиотекой. Решение: кухня-гостиная, спальня, кабинет-библиотека. Санузел увеличен, гардеробная при спальне.",
+    "output": {
+      "object_type": "apartment",
+      "area": 75,
+      "rooms": 3,
+      "occupants": 1,
+      "zones": [
+        {"type": "living_kitchen", "area": 26},
+        {"type": "bedroom", "area": 16},
+        {"type": "office_library", "area": 14},
+        {"type": "bathroom", "area": 7},
+        {"type": "wardrobe", "area": 5},
+        {"type": "hall", "area": 9}
+      ],
+      "wet_areas_grouped": true,
+      "insolation": "bedroom_office",
+      "notes": "кабинет-библиотека"
+    }
+  },
+  {
+    "instruction": "Спроектируй 2-комнатную квартиру 56 м² с кухней-нишей и большой ванной для пары.",
+    "input_lines": [],
+    "output_text": "Объект: двухкомнатная квартира 56 м². Решение: гостиная, спальня, кухня-ниша в коридоре, большая ванная с отдельным входом из спальни. Мокрые зоны у входа.",
+    "output": {
+      "object_type": "apartment",
+      "area": 56,
+      "rooms": 2,
+      "occupants": 2,
+      "zones": [
+        {"type": "living", "area": 20},
+        {"type": "bedroom", "area": 15},
+        {"type": "kitchen_niche", "area": 4},
+        {"type": "bathroom", "area": 8},
+        {"type": "hall", "area": 7}
+      ],
+      "wet_areas_grouped": true,
+      "insolation": "bedroom_living",
+      "notes": "кухня-ниша, большая ванная"
+    }
+  },
+  {
+    "instruction": "Спроектируй 4-комнатную квартиру 105 м² с двумя мастер-спальнями для семьи из 4 взрослых.",
+    "input_lines": [],
+    "output_text": "Объект: четырёхкомнатная квартира 105 м². Решение: две мастер-спальни с отдельными санузлами, общая кухня-гостиная, кабинет/гостевая. Постирочная. Мокрые зоны сгруппированы.",
+    "output": {
+      "object_type": "apartment",
+      "area": 105,
+      "rooms": 4,
+      "occupants": 4,
+      "zones": [
+        {"type": "living_kitchen", "area": 32},
+        {"type": "master_bedroom_1", "area": 18},
+        {"type": "master_bedroom_2", "area": 16},
+        {"type": "guest_or_office", "area": 10},
+        {"type": "bathroom_1", "area": 6},
+        {"type": "bathroom_2", "area": 5},
+        {"type": "laundry", "area": 4},
+        {"type": "hall", "area": 12}
+      ],
+      "wet_areas_grouped": true,
+      "insolation": "bedrooms_office",
+      "notes": "две мастер-спальни"
+    }
+  },
+  {
+    "instruction": "Спроектируй квартиру с большим балконом и зоной отдыха, площадь 58 м², 2 комнаты, для пары.",
+    "input_lines": [],
+    "output_text": "Объект: двухкомнатная квартира 58 м² с большим балконом. Решение: кухня-гостиная с выходом на балкон, спальня изолирована. Санузел увеличен, гардеробная при входе.",
+    "output": {
+      "object_type": "apartment",
+      "area": 58,
+      "rooms": 2,
+      "occupants": 2,
+      "zones": [
+        {"type": "living_kitchen", "area": 22},
+        {"type": "bedroom", "area": 14},
+        {"type": "bathroom", "area": 6},
+        {"type": "wardrobe", "area": 4},
+        {"type": "hall", "area": 7},
+        {"type": "balcony", "area": 5}
+      ],
+      "wet_areas_grouped": true,
+      "insolation": "living_bedroom",
+      "notes": "большой балкон с зоной отдыха"
+    }
+  },
+  {
+    "instruction": "Спроектируй 1-комнатную квартиру 40 м² с нишей для спальни и рабочей зоной для одного человека.",
+    "input_lines": [],
+    "output_text": "Объект: однокомнатная квартира 40 м². Решение: спальная ниша, рабочая зона у окна, кухня-гостиная. Санузел у входа. Встроенные шкафы.",
+    "output": {
+      "object_type": "apartment",
+      "area": 40,
+      "rooms": 1,
+      "occupants": 1,
+      "zones": [
+        {"type": "living", "area": 16},
+        {"type": "sleep_niche", "area": 6},
+        {"type": "kitchen", "area": 6},
+        {"type": "bathroom", "area": 4},
+        {"type": "hall", "area": 4}
+      ],
+      "wet_areas_grouped": true,
+      "insolation": "living",
+      "notes": "спальная ниша, рабочая зона"
+    }
+  },
+  {
+    "instruction": "Спроектируй 3-комнатную квартиру 82 м² с двумя детскими и игровой зоной для семьи с тремя детьми.",
+    "input_lines": [],
+    "output_text": "Объект: трёхкомнатная квартира 82 м². Решение: две детские, игровая зона в общей комнате, мастер-спальня. Два санузла. Мокрые зоны сгруппированы.",
+    "output": {
+      "object_type": "apartment",
+      "area": 82,
+      "rooms": 3,
+      "occupants": 5,
+      "zones": [
+        {"type": "living_with_play", "area": 26},
+        {"type": "master_bedroom", "area": 16},
+        {"type": "kids_room_1", "area": 13},
+        {"type": "kids_room_2", "area": 13},
+        {"type": "bathroom_1", "area": 6},
+        {"type": "bathroom_2", "area": 4},
+        {"type": "hall", "area": 10}
+      ],
+      "wet_areas_grouped": true,
+      "insolation": "bedrooms",
+      "notes": "игровая зона в гостиной"
+    }
+  },
+  {
+    "instruction": "Спроектируй квартиру с отдельной столовой и кухней, площадь 70 м², 3 комнаты, для семьи из 4 человек.",
+    "input_lines": [],
+    "output_text": "Объект: трёхкомнатная квартира 70 м² с отдельной кухней и столовой. Решение: кухня изолирована, столовая при гостиной, две спальни, кабинет. Санузел раздельный.",
+    "output": {
+      "object_type": "apartment",
+      "area": 70,
+      "rooms": 3,
+      "occupants": 4,
+      "zones": [
+        {"type": "living_dining", "area": 22},
+        {"type": "kitchen", "area": 10},
+        {"type": "bedroom_1", "area": 14},
+        {"type": "bedroom_2", "area": 12},
+        {"type": "office", "area": 8},
+        {"type": "bathroom", "area": 5},
+        {"type": "hall", "area": 8}
+      ],
+      "wet_areas_grouped": true,
+      "insolation": "bedrooms_living",
+      "notes": "отдельная кухня и столовая"
+    }
+  },
+  {
+    "instruction": "Спроектируй квартиру для семьи из 2 человек (мать и взрослый сын) площадью 65 м². Требования: две изолированные спальни, общая гостиная, кухня, два санузла, гардеробная.",
+    "input_lines": [],
+    "output_text": "Объект: двухкомнатная квартира 65 м² для двух взрослых. Решение: две изолированные спальни, гостиная с кухней, гостевой санузел и ванная при спальне. Гардеробная в коридоре. Мокрые зоны сгруппированы.",
+    "output": {
+      "object_type": "apartment",
+      "area": 65,
+      "rooms": 2,
+      "occupants": 2,
+      "zones": [
+        {"type": "living_kitchen", "area": 26},
+        {"type": "bedroom_1", "area": 15},
+        {"type": "bedroom_2", "area": 13},
+        {"type": "bathroom_1", "area": 5},
+        {"type": "bathroom_2", "area": 3},
+        {"type": "wardrobe", "area": 4},
+        {"type": "hall", "area": 8}
+      ],
+      "wet_areas_grouped": true,
+      "insolation": "bedrooms",
+      "notes": "две изолированные спальни"
+    }
+  },
+  {
+    "instruction": "Спроектируй компактную студию 28 м² для сдачи в аренду. Требования: минимальный набор мебели, отдельная душевая, кухня-ниша, максимум свободного пространства.",
+    "input_lines": [],
+    "output_text": "Объект: студия 28 м² под аренду. Решение: единое пространство, кухня-ниша у входа, душевая кабина, встроенный шкаф. Никаких лишних перегородок.",
+    "output": {
+      "object_type": "studio",
+      "area": 28,
+      "rooms": 1,
+      "occupants": 1,
+      "zones": [
+        {"type": "living_sleep", "area": 17},
+        {"type": "kitchen_niche", "area": 3},
+        {"type": "bathroom", "area": 3},
+        {"type": "hall", "area": 2}
+      ],
+      "wet_areas_grouped": true,
+      "insolation": "main_room",
+      "notes": "минимализм, под аренду"
+    }
+  },
+  {
+    "instruction": "Спроектируй двухкомнатную квартиру 58 м² для пары с собакой. Требования: спальня, гостиная с кухней, санузел, место для питомца в прихожей.",
+    "input_lines": [],
+    "output_text": "Объект: двухкомнатная квартира 58 м². Решение: спальня изолирована, кухня-гостиная, санузел увеличен, в прихожей предусмотрена зона для мытья лап. Мокрые зоны сгруппированы.",
+    "output": {
+      "object_type": "apartment",
+      "area": 58,
+      "rooms": 2,
+      "occupants": 2,
+      "zones": [
+        {"type": "living_kitchen", "area": 23},
+        {"type": "bedroom", "area": 14},
+        {"type": "bathroom", "area": 5},
+        {"type": "hall_with_mudroom", "area": 7}
+      ],
+      "wet_areas_grouped": true,
+      "insolation": "bedroom_living",
+      "notes": "зона для собаки в прихожей"
+    }
+  },
+  {
+    "instruction": "Спроектируй студию 32 м² для молодого специалиста, работающего удалённо. Требования: выделенная рабочая зона, спальное место, кухня, санузел, гардероб.",
+    "input_lines": [],
+    "output_text": "Объект: студия 32 м² с акцентом на рабочую зону. Рабочее место у окна, спальная зона за перегородкой, кухня вдоль стены, гардероб у входа.",
+    "output": {
+      "object_type": "studio",
+      "area": 32,
+      "rooms": 1,
+      "occupants": 1,
+      "zones": [
+        {"type": "living_sleep", "area": 17},
+        {"type": "workspace", "area": 4},
+        {"type": "kitchen", "area": 3},
+        {"type": "bathroom", "area": 3},
+        {"type": "wardrobe", "area": 3}
+      ],
+      "wet_areas_grouped": true,
+      "insolation": "main_room",
+      "notes": "рабочая зона у окна"
+    }
+  },
+  {
+    "instruction": "Спроектируй трёхкомнатную квартиру 84 м² для семьи с двумя детьми и бабушкой. Требования: три спальни, два санузла, кухня-гостиная, кладовая.",
+    "input_lines": [],
+    "output_text": "Объект: трёхкомнатная квартира 84 м² для семьи из 5 человек. Три изолированные спальни, кухня-гостиная, два санузла, кладовая при кухне. Мокрые зоны сгруппированы.",
+    "output": {
+      "object_type": "apartment",
+      "area": 84,
+      "rooms": 3,
+      "occupants": 5,
+      "zones": [
+        {"type": "living_kitchen", "area": 28},
+        {"type": "bedroom_1", "area": 15},
+        {"type": "bedroom_2", "area": 13},
+        {"type": "bedroom_3", "area": 12},
+        {"type": "bathroom_1", "area": 5},
+        {"type": "bathroom_2", "area": 4},
+        {"type": "pantry", "area": 2},
+        {"type": "hall", "area": 9}
+      ],
+      "wet_areas_grouped": true,
+      "insolation": "bedrooms",
+      "notes": "кладовая при кухне"
+    }
+  },
+  {
+    "instruction": "Спроектируй двухуровневую квартиру 85 м² с террасой. Требования: на первом уровне гостиная, кухня, санузел; на втором две спальни и ванная.",
+    "input_lines": [],
+    "output_text": "Объект: двухуровневая квартира 85 м² с террасой. Первый уровень: гостиная с выходом на террасу, кухня, гостевой санузел. Второй: две спальни, ванная, гардеробная.",
+    "output": {
+      "object_type": "duplex_apartment",
+      "area": 85,
+      "rooms": 2,
+      "occupants": 3,
+      "levels": 2,
+      "zones": [
+        {"level": 1, "type": "living", "area": 26},
+        {"level": 1, "type": "kitchen", "area": 10},
+        {"level": 1, "type": "bathroom_guest", "area": 3},
+        {"level": 2, "type": "bedroom_1", "area": 15},
+        {"level": 2, "type": "bedroom_2", "area": 13},
+        {"level": 2, "type": "bathroom", "area": 6},
+        {"level": 2, "type": "wardrobe", "area": 5}
+      ],
+      "wet_areas_grouped": true,
+      "insolation": "bedrooms_living",
+      "notes": "терраса на первом уровне"
+    }
+  },
+  {
+    "instruction": "Спроектируй однокомнатную квартиру 39 м² для одного человека с большой библиотекой. Требования: спальня, гостиная, кухня, санузел, стеллажи.",
+    "input_lines": [],
+    "output_text": "Объект: однокомнатная квартира 39 м². Спальня у окна, гостиная с библиотекой, кухня-ниша, санузел. Стеллажи вдоль длинной стены.",
+    "output": {
+      "object_type": "apartment",
+      "area": 39,
+      "rooms": 1,
+      "occupants": 1,
+      "zones": [
+        {"type": "living", "area": 15},
+        {"type": "bedroom", "area": 11},
+        {"type": "kitchen", "area": 4},
+        {"type": "bathroom", "area": 3},
+        {"type": "hall", "area": 4}
+      ],
+      "wet_areas_grouped": true,
+      "insolation": "bedroom_living",
+      "notes": "библиотека в гостиной"
+    }
+  },
+  {
+    "instruction": "Спроектируй четырёхкомнатную квартиру 102 м² для семьи из 6 человек. Требования: четыре спальни, три санузла, большая кухня-гостиная, постирочная.",
+    "input_lines": [],
+    "output_text": "Объект: четырёхкомнатная квартира 102 м². Четыре изолированные спальни, три санузла, кухня-гостиная 30 м², постирочная у входа. Мокрые зоны распределены.",
+    "output": {
+      "object_type": "apartment",
+      "area": 102,
+      "rooms": 4,
+      "occupants": 6,
+      "zones": [
+        {"type": "living_kitchen", "area": 30},
+        {"type": "bedroom_1", "area": 16},
+        {"type": "bedroom_2", "area": 14},
+        {"type": "bedroom_3", "area": 13},
+        {"type": "bedroom_4", "area": 12},
+        {"type": "bathroom_guest", "area": 3},
+        {"type": "bathroom_common", "area": 6},
+        {"type": "bathroom_master", "area": 5},
+        {"type": "laundry", "area": 4},
+        {"type": "hall", "area": 11}
+      ],
+      "wet_areas_grouped": true,
+      "insolation": "bedrooms_living",
+      "notes": "три санузла, постирочная"
+    }
+  },
+  {
+    "instruction": "Спроектируй квартиру с изолированной кухней и столовой, площадь 74 м², 3 комнаты, для семьи из 4 человек. Требования: две детские, мастер-спальня, два санузла.",
+    "input_lines": [],
+    "output_text": "Объект: трёхкомнатная квартира 74 м² с отдельной кухней и столовой. Две детские, мастер-спальня с санузлом, гостевой санузел. Кухня изолирована.",
+    "output": {
+      "object_type": "apartment",
+      "area": 74,
+      "rooms": 3,
+      "occupants": 4,
+      "zones": [
+        {"type": "living_dining", "area": 24},
+        {"type": "kitchen", "area": 10},
+        {"type": "kids_room_1", "area": 12},
+        {"type": "kids_room_2", "area": 12},
+        {"type": "master_bedroom", "area": 15},
+        {"type": "bathroom_master", "area": 5},
+        {"type": "bathroom_guest", "area": 3},
+        {"type": "hall", "area": 8}
+      ],
+      "wet_areas_grouped": true,
+      "insolation": "bedrooms_living",
+      "notes": "изолированная кухня"
+    }
+  },
+  {
+    "instruction": "Спроектируй студию 30 м² с антресолью для одного человека. Требования: спальное место наверху, рабочая зона внизу, кухня, санузел.",
+    "input_lines": [],
+    "output_text": "Объект: студия 30 м² с антресолью. Спальное место на антресоли, под ним рабочая зона, кухня вдоль стены, санузел. Лестница с ящиками.",
+    "output": {
+      "object_type": "studio",
+      "area": 30,
+      "rooms": 1,
+      "occupants": 1,
+      "zones": [
+        {"type": "living", "area": 14},
+        {"type": "sleep_mezzanine", "area": 6},
+        {"type": "kitchen", "area": 3},
+        {"type": "bathroom", "area": 3},
+        {"type": "hall", "area": 2}
+      ],
+      "wet_areas_grouped": true,
+      "insolation": "living",
+      "notes": "спальное место на антресоли"
+    }
+  },
+  {
+    "instruction": "Спроектируй трёхкомнатную квартиру 76 м² с сауной для семьи из 3 человек. Требования: мастер-спальня с сауной, детская, гостиная с кухней, два санузла.",
+    "input_lines": [],
+    "output_text": "Объект: трёхкомнатная квартира 76 м² с сауной. Мастер-спальня с отдельной ванной и сауной, детская, кухня-гостиная. Гостевой санузел у входа.",
+    "output": {
+      "object_type": "apartment",
+      "area": 76,
+      "rooms": 3,
+      "occupants": 3,
+      "zones": [
+        {"type": "living_kitchen", "area": 25},
+        {"type": "master_bedroom", "area": 16},
+        {"type": "kids_room", "area": 12},
+        {"type": "bathroom_master", "area": 8},
+        {"type": "sauna", "area": 3},
+        {"type": "bathroom_guest", "area": 3},
+        {"type": "hall", "area": 8}
+      ],
+      "wet_areas_grouped": true,
+      "insolation": "bedrooms",
+      "notes": "сауна при мастер-спальне"
+    }
+  },
+  {
+    "instruction": "Спроектируй двухкомнатную квартиру 60 м² с отдельным кабинетом для пары. Требования: спальня, кабинет, гостиная с кухней, санузел, гардеробная.",
+    "input_lines": [],
+    "output_text": "Объект: двухкомнатная квартира 60 м² с кабинетом. Спальня, кабинет, кухня-гостиная, гардеробная при спальне, санузел увеличен.",
+    "output": {
+      "object_type": "apartment",
+      "area": 60,
+      "rooms": 2,
+      "occupants": 2,
+      "zones": [
+        {"type": "living_kitchen", "area": 23},
+        {"type": "bedroom", "area": 14},
+        {"type": "office", "area": 9},
+        {"type": "bathroom", "area": 6},
+        {"type": "wardrobe", "area": 4},
+        {"type": "hall", "area": 6}
+      ],
+      "wet_areas_grouped": true,
+      "insolation": "bedroom_office",
+      "notes": "отдельный кабинет"
+    }
+  },
+  {
+    "instruction": "Спроектируй мансардную квартиру 52 м² со скошенными потолками для одного человека. Требования: спальня, гостиная, кухня, санузел, использовать ниши под хранение.",
+    "input_lines": [],
+    "output_text": "Объект: мансардная квартира 52 м². Спальня под скатом крыши, гостиная в высокой части, кухня в нише, санузел. Встроенные шкафы в низких зонах.",
+    "output": {
+      "object_type": "attic_apartment",
+      "area": 52,
+      "rooms": 2,
+      "occupants": 1,
+      "zones": [
+        {"type": "living", "area": 18},
+        {"type": "bedroom", "area": 12},
+        {"type": "kitchen", "area": 7},
+        {"type": "bathroom", "area": 5},
+        {"type": "hall", "area": 5}
+      ],
+      "wet_areas_grouped": true,
+      "insolation": "living_bedroom",
+      "notes": "использованы ниши под хранение"
+    }
+  },
+  {
+    "instruction": "Спроектируй квартиру с большой гардеробной и ванной при спальне, площадь 66 м², 2 комнаты, для одного человека. Требования: спальня с ванной, кабинет, гостиная с кухней.",
+    "input_lines": [],
+    "output_text": "Объект: двухкомнатная квартира 66 м². Спальня с большой гардеробной и ванной, кабинет, кухня-гостиная. Гостевой санузел у входа.",
+    "output": {
+      "object_type": "apartment",
+      "area": 66,
+      "rooms": 2,
+      "occupants": 1,
+      "zones": [
+        {"type": "living_kitchen", "area": 22},
+        {"type": "bedroom", "area": 16},
+        {"type": "bathroom_master", "area": 7},
+        {"type": "wardrobe", "area": 6},
+        {"type": "office", "area": 9},
+        {"type": "bathroom_guest", "area": 3},
+        {"type": "hall", "area": 5}
+      ],
+      "wet_areas_grouped": true,
+      "insolation": "bedroom_office",
+      "notes": "ванная и гардеробная при спальне"
+    }
+  },
+  {
+    "instruction": "Спроектируй квартиру для семьи из 3 человек с собакой, площадь 72 м², 3 комнаты. Требования: спальня, детская, кабинет, кухня-гостиная, тамбур для питомца.",
+    "input_lines": [],
+    "output_text": "Объект: трёхкомнатная квартира 72 м². Спальня, детская, кабинет, кухня-гостиная. Тамбур с местом для мытья лап. Санузел увеличен.",
+    "output": {
+      "object_type": "apartment",
+      "area": 72,
+      "rooms": 3,
+      "occupants": 3,
+      "zones": [
+        {"type": "living_kitchen", "area": 26},
+        {"type": "bedroom", "area": 14},
+        {"type": "kids_room", "area": 12},
+        {"type": "office", "area": 8},
+        {"type": "bathroom", "area": 6},
+        {"type": "hall_with_mudroom", "area": 8}
+      ],
+      "wet_areas_grouped": true,
+      "insolation": "bedrooms_living",
+      "notes": "тамбур для собаки"
+    }
+  },
+  {
+    "instruction": "Спроектируй студию 34 м² с перегородкой для спальни для одного человека. Требования: спальное место, гостиная, кухня, санузел, много света.",
+    "input_lines": [],
+    "output_text": "Объект: студия 34 м². Спальное место за лёгкой перегородкой, гостиная с кухней, санузел. Большое окно.",
+    "output": {
+      "object_type": "studio",
+      "area": 34,
+      "rooms": 1,
+      "occupants": 1,
+      "zones": [
+        {"type": "living", "area": 18},
+        {"type": "sleep_niche", "area": 6},
+        {"type": "kitchen", "area": 4},
+        {"type": "bathroom", "area": 3},
+        {"type": "hall", "area": 2}
+      ],
+      "wet_areas_grouped": true,
+      "insolation": "living",
+      "notes": "перегородка для спальни"
+    }
+  },
+  {
+    "instruction": "Спроектируй четырёхкомнатную квартиру 108 м² для семьи из 5 человек с двумя собаками. Требования: мастер-спальня, две детские, кабинет, два санузла, постирочная, зона для собак.",
+    "input_lines": [],
+    "output_text": "Объект: четырёхкомнатная квартира 108 м². Мастер-спальня, две детские, кабинет, кухня-гостиная, два санузла, постирочная с зоной для мытья собак.",
+    "output": {
+      "object_type": "apartment",
+      "area": 108,
+      "rooms": 4,
+      "occupants": 5,
+      "zones": [
+        {"type": "living_kitchen", "area": 32},
+        {"type": "master_bedroom", "area": 17},
+        {"type": "kids_room_1", "area": 13},
+        {"type": "kids_room_2", "area": 13},
+        {"type": "office", "area": 9},
+        {"type": "bathroom_1", "area": 6},
+        {"type": "bathroom_2", "area": 4},
+        {"type": "laundry", "area": 5},
+        {"type": "hall", "area": 10}
+      ],
+      "wet_areas_grouped": true,
+      "insolation": "bedrooms_office",
+      "notes": "зона для собак в постирочной"
+    }
+  },
+  {
+    "instruction": "Спроектируй квартиру с раздельными санузлами и двумя гардеробными, площадь 81 м², 3 комнаты, для пары. Требования: мастер-спальня с гардеробной и ванной, гостевая спальня, кабинет.",
+    "input_lines": [],
+    "output_text": "Объект: трёхкомнатная квартира 81 м². Мастер-спальня с гардеробной и ванной, гостевая спальня, кабинет, кухня-гостиная. Гостевой санузел у входа.",
+    "output": {
+      "object_type": "apartment",
+      "area": 81,
+      "rooms": 3,
+      "occupants": 2,
+      "zones": [
+        {"type": "living_kitchen", "area": 28},
+        {"type": "master_bedroom", "area": 16},
+        {"type": "bathroom_master", "area": 6},
+        {"type": "wardrobe_master", "area": 5},
+        {"type": "guest_bedroom", "area": 12},
+        {"type": "office", "area": 8},
+        {"type": "bathroom_guest", "area": 3},
+        {"type": "hall", "area": 8}
+      ],
+      "wet_areas_grouped": true,
+      "insolation": "bedrooms_office",
+      "notes": "две гардеробные"
+    }
+  },
+  {
+    "instruction": "Спроектируй квартиру с большой террасой на крыше, площадь 53 м², 1 комната, для одного человека. Требования: спальня, гостиная с кухней, санузел, выход на террасу.",
+    "input_lines": [],
+    "output_text": "Объект: однокомнатная квартира 53 м² с террасой на крыше. Спальня изолирована, гостиная с кухней и выходом на террасу, санузел.",
+    "output": {
+      "object_type": "apartment",
+      "area": 53,
+      "rooms": 1,
+      "occupants": 1,
+      "zones": [
+        {"type": "living_kitchen", "area": 22},
+        {"type": "bedroom", "area": 13},
+        {"type": "bathroom", "area": 5},
+        {"type": "hall", "area": 4},
+        {"type": "roof_terrace", "area": 9}
+      ],
+      "wet_areas_grouped": true,
+      "insolation": "living_bedroom",
+      "notes": "терраса на крыше"
+    }
+  },
+  {
+    "instruction": "Спроектируй квартиру для семьи из 4 человек с открытой кухней и барной стойкой, площадь 78 м², 3 комнаты. Требования: две детские, мастер-спальня, два санузла.",
+    "input_lines": [],
+    "output_text": "Объект: трёхкомнатная квартира 78 м². Кухня-гостиная с барной стойкой, две детские, мастер-спальня. Два санузла.",
+    "output": {
+      "object_type": "apartment",
+      "area": 78,
+      "rooms": 3,
+      "occupants": 4,
+      "zones": [
+        {"type": "living_kitchen", "area": 28},
+        {"type": "master_bedroom", "area": 15},
+        {"type": "kids_room_1", "area": 11},
+        {"type": "kids_room_2", "area": 11},
+        {"type": "bathroom_1", "area": 5},
+        {"type": "bathroom_2", "area": 4},
+        {"type": "hall", "area": 8}
+      ],
+      "wet_areas_grouped": true,
+      "insolation": "bedrooms_living",
+      "notes": "барная стойка в кухне"
+    }
+  },
+  {
+    "instruction": "Спроектируй квартиру с домашним кинотеатром, площадь 86 м², 3 комнаты, для пары. Требования: изолированная комната под кинотеатр, спальня, кабинет, кухня-гостиная.",
+    "input_lines": [],
+    "output_text": "Объект: трёхкомнатная квартира 86 м² с домашним кинотеатром. Комната-кинотеатр изолирована, спальня, кабинет, кухня-гостиная. Два санузла.",
+    "output": {
+      "object_type": "apartment",
+      "area": 86,
+      "rooms": 3,
+      "occupants": 2,
+      "zones": [
+        {"type": "living_kitchen", "area": 28},
+        {"type": "bedroom", "area": 16},
+        {"type": "office", "area": 9},
+        {"type": "home_theater", "area": 15},
+        {"type": "bathroom_1", "area": 6},
+        {"type": "bathroom_2", "area": 3},
+        {"type": "hall", "area": 8}
+      ],
+      "wet_areas_grouped": true,
+      "insolation": "bedroom_office",
+      "notes": "комната под кинотеатр"
+    }
+  },
+  {
+    "instruction": "Спроектируй квартиру с зимним садом, площадь 70 м², 2 комнаты, для пары. Требования: гостиная с зимним садом, спальня, кухня, санузел, гардеробная.",
+    "input_lines": [],
+    "output_text": "Объект: двухкомнатная квартира 70 м² с зимним садом. Гостиная с застеклённым зимним садом, спальня, кухня, санузел, гардеробная при спальне.",
+    "output": {
+      "object_type": "apartment",
+      "area": 70,
+      "rooms": 2,
+      "occupants": 2,
+      "zones": [
+        {"type": "living", "area": 24},
+        {"type": "winter_garden", "area": 6},
+        {"type": "bedroom", "area": 15},
+        {"type": "kitchen", "area": 9},
+        {"type": "bathroom", "area": 5},
+        {"type": "wardrobe", "area": 4},
+        {"type": "hall", "area": 6}
+      ],
+      "wet_areas_grouped": true,
+      "insolation": "living_bedroom",
+      "notes": "зимний сад при гостиной"
+    }
+  },
+  {
+    "instruction": "Спроектируй квартиру для семьи из 3 человек с двумя кабинетами, площадь 90 м², 3 комнаты. Требования: две изолированные рабочие комнаты, спальня, кухня-гостиная, два санузла.",
+    "input_lines": [],
+    "output_text": "Объект: трёхкомнатная квартира 90 м² с двумя кабинетами. Два кабинета, спальня, кухня-гостиная. Два санузла.",
+    "output": {
+      "object_type": "apartment",
+      "area": 90,
+      "rooms": 3,
+      "occupants": 3,
+      "zones": [
+        {"type": "living_kitchen", "area": 28},
+        {"type": "bedroom", "area": 16},
+        {"type": "office_1", "area": 10},
+        {"type": "office_2", "area": 9},
+        {"type": "bathroom_1", "area": 6},
+        {"type": "bathroom_2", "area": 4},
+        {"type": "hall", "area": 9}
+      ],
+      "wet_areas_grouped": true,
+      "insolation": "bedroom_offices",
+      "notes": "два кабинета"
+    }
+  },
+  {
+    "instruction": "Спроектируй квартиру с большой кухней-столовой и кладовой, площадь 64 м², 2 комнаты, для семьи из 4 человек. Требования: спальня, детская, кухня-столовая, санузел, кладовая.",
+    "input_lines": [],
+    "output_text": "Объект: двухкомнатная квартира 64 м². Кухня-столовая просторная, спальня, детская, санузел, кладовая. Мокрые зоны у входа.",
+    "output": {
+      "object_type": "apartment",
+      "area": 64,
+      "rooms": 2,
+      "occupants": 4,
+      "zones": [
+        {"type": "kitchen_dining", "area": 24},
+        {"type": "bedroom", "area": 14},
+        {"type": "kids_room", "area": 12},
+        {"type": "bathroom", "area": 5},
+        {"type": "pantry", "area": 3},
+        {"type": "hall", "area": 6}
+      ],
+      "wet_areas_grouped": true,
+      "insolation": "bedrooms_living",
+      "notes": "кладовая, большая кухня-столовая"
+    }
+  },
+  {
+    "instruction": "Спроектируй апартаменты 44 м² для краткосрочной аренды. Требования: спальня, гостиная с кухней, санузел, максимум света, современный дизайн.",
+    "input_lines": [],
+    "output_text": "Объект: апартаменты 44 м² под краткосрочную аренду. Спальня изолирована, гостиная с кухней-столовой, санузел, большое окно. Никаких тёмных углов.",
+    "output": {
+      "object_type": "apartment",
+      "area": 44,
+      "rooms": 1,
+      "occupants": 2,
+      "zones": [
+        {"type": "living_kitchen", "area": 22},
+        {"type": "bedroom", "area": 11},
+        {"type": "bathroom", "area": 4},
+        {"type": "hall", "area": 4}
+      ],
+      "wet_areas_grouped": true,
+      "insolation": "all_rooms",
+      "notes": "светлая, под аренду"
+    }
+  },
+  {
+    "instruction": "Спроектируй трёхкомнатную квартиру 82 м² с большой ванной и сауной для семьи из 3 человек. Требования: мастер-спальня с сауной, детская, гостиная с кухней.",
+    "input_lines": [],
+    "output_text": "Объект: трёхкомнатная квартира 82 м² с сауной. Мастер-спальня с отдельной ванной и сауной, детская, кухня-гостиная. Гостевой санузел у входа.",
+    "output": {
+      "object_type": "apartment",
+      "area": 82,
+      "rooms": 3,
+      "occupants": 3,
+      "zones": [
+        {"type": "living_kitchen", "area": 28},
+        {"type": "master_bedroom", "area": 16},
+        {"type": "kids_room", "area": 12},
+        {"type": "bathroom_master", "area": 8},
+        {"type": "sauna", "area": 3},
+        {"type": "bathroom_guest", "area": 3},
+        {"type": "hall", "area": 8}
+      ],
+      "wet_areas_grouped": true,
+      "insolation": "bedrooms",
+      "notes": "сауна при мастер-спальне"
+    }
+  },
+  {
+    "instruction": "Спроектируй квартиру с отдельным входом и террасой, площадь 61 м², 2 комнаты, для пары. Требования: кухня-гостиная с выходом на террасу, спальня, санузел, гардеробная.",
+    "input_lines": [],
+    "output_text": "Объект: двухкомнатная квартира 61 м² с террасой и отдельным входом. Кухня-гостиная с выходом на террасу, спальня изолирована, гардеробная при спальне, санузел увеличен.",
+    "output": {
+      "object_type": "apartment",
+      "area": 61,
+      "rooms": 2,
+      "occupants": 2,
+      "zones": [
+        {"type": "living_kitchen", "area": 24},
+        {"type": "bedroom", "area": 14},
+        {"type": "bathroom", "area": 6},
+        {"type": "wardrobe", "area": 5},
+        {"type": "hall", "area": 6},
+        {"type": "terrace", "area": 6}
+      ],
+      "wet_areas_grouped": true,
+      "insolation": "living_bedroom",
+      "notes": "терраса, отдельный вход"
+    }
+  }
+]
